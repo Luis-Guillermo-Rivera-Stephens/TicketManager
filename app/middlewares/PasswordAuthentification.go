@@ -18,13 +18,13 @@ func PasswordAuthentification(next http.Handler) http.Handler {
 			http.Error(w, err.Error(), http.StatusBadRequest)
 			return
 		}
-		User, errRes := general.GetAccount(id)
-		if errRes != nil {
-			http.Error(w, errRes.Message, http.StatusUnauthorized)
+		Account, err := general.GetAccount(id)
+		if err != nil {
+			http.Error(w, err.Error(), http.StatusUnauthorized)
 			return
 		}
 
-		err = User.VerifPassword(Pass.Password)
+		err = Account.VerifPassword(Pass.Password)
 		if err != nil {
 			http.Error(w, "La contraseña no es correcta", http.StatusUnauthorized)
 			return

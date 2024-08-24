@@ -13,7 +13,8 @@ func GetAccount(id int) (datatypes.ACCOUNT, error) {
 		return datatypes.ACCOUNT{}, err
 	}
 	var User datatypes.ACCOUNT
-	result := db.Raw("EXEC GETUSER ?", id).Scan(&User)
+	result := db.Raw("EXEC GET_ACCOUNT ?", id).Scan(&User)
+
 	if result.Error != nil {
 		return datatypes.ACCOUNT{}, result.Error
 	}

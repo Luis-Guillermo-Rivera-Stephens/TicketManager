@@ -1,0 +1,23 @@
+GET http://localhost:8080/account
+email: memoriverastephens@gmail.com
+password: P4$$W0rD123A
+
+###
+POST http://localhost:8080/account
+Content-Type: application/json
+
+    { 
+        "id_account": 0,
+        "name": "Luis Guillermo Rivera Stephens",
+        "email": "memoriverastephens@gmail.com",
+        "password": "P4$$W0rD123A",
+        "isstarted": false,
+        "department_fk": 1,
+        "ispm": true
+    }
+
+###
+DELETE http://localhost:8080/account
+email: memoriverastephens@gmail.com
+token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdXRob3JpemVkIjp0cnVlLCJleHAiOjE3MjQ1NDgwOTcsIm5hbWUiOiJMdWlzIEd1aWxsZXJtbyBSaXZlcmEgU3RlcGhlbnMkMmEkMTAkeW5zTUpGS3RCNWI3WncyM0IzR0gyZWtoRzZTcXlNQkpSdXRqUkdXSjVpZmNtTC9jUklGb2UifQ.4VTr6d6gcIZ_QKY0q70EMMAvqz0t20gsbW8ydpT3924
+

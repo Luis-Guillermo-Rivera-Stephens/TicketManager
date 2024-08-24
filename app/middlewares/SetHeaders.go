@@ -40,6 +40,8 @@ func SetHeaders(next http.Handler) http.Handler {
 		r.Header.Set("password", password)
 
 		fmt.Println("Headers ready")
+		fmt.Println("Email: ", r.Header.Get("email"))
+		fmt.Println("Password: ", r.Header.Get("password"))
 		next.ServeHTTP(w, r)
 	})
 }
