@@ -8,7 +8,7 @@ import (
 )
 
 func GetJWT_sk() (string, error) {
-	err := godotenv.Load("./JWT.env")
+	err := godotenv.Load("C:\\Users\\memor\\OneDrive\\Escritorio\\programacionPersonal\\TicketManager\\app\\general\\JWT.env")
 	if err != nil {
 		fmt.Println("Error loading .env file")
 		return "", err

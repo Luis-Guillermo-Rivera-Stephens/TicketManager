@@ -46,7 +46,7 @@ func GetDataBase() (*gorm.DB, error) {
 }
 
 func getDataBaseUrl() (string, error) {
-	err := godotenv.Load("C:\\Users\\memor\\OneDrive\\Escritorio\\GYMAPP\\GRHUB\\app\\data\\DB.env")
+	err := godotenv.Load("C:\\Users\\memor\\OneDrive\\Escritorio\\programacionPersonal\\TicketManager\\app\\data\\DB.env")
 	if err != nil {
 		fmt.Println("Error loading .env file")
 		return "", err

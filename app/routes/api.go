@@ -50,7 +50,7 @@ func (api *API) Listen() {
 func GetAPI() (API, error) {
 	var err error = nil
 	if !ApiInfo.Started {
-		err = ApiInfo.Initialize("GRHUBServer", 8080)
+		err = ApiInfo.Initialize("TicketManagerServer", 8080)
 	}
 	return ApiInfo, err
 }

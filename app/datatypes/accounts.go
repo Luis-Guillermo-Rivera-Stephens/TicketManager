@@ -11,9 +11,9 @@ type ACCOUNT struct {
 	Name          string `json:"name"`
 	Email         string `json:"email"`
 	Passwd        string `json:"passwd"`
-	IsStarted     int    `json:"isstarted"`
+	IsStarted     bool   `json:"isstarted"`
 	Department_FK int    `json:"department_fk"`
-	IsPM          int    `json:"ispm"`
+	IsPM          bool   `json:"ispm"`
 }
 
 func (a *ACCOUNT) VerifPassword(parampassword string) error {
