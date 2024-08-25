@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <title>Title</title>
+        <!-- Required meta tags -->
+        <meta charset="utf-8" />
+        <meta
+            name="viewport"
+            content="width=device-width, initial-scale=1, shrink-to-fit=no"
+        />
+
+        <link rel="stylesheet" href="./styles/register.css">
+        <!-- Bootstrap CSS v5.2.1 -->
+        <link
+            href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+            rel="stylesheet"
+            integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+            crossorigin="anonymous"
+        />
+    </head>
+
+    <body>
+        <div class="register_module">
+            <center><h2>Register</h2></center>
+            <form id="idForm">
+                <input type="text" placeholder="Nombre" id="name">
+                <input type="email" placeholder="Email" id="email">
+                <input type="password" placeholder="Password" id="password">
+                <br>
+                <div>
+                    Department: <span id="dep">None</span>
+                </div>
+                <br>
+                
+                <div class="btn-group">
+                    <button
+                        class="btn btn-secondary dropdown-toggle"
+                        type="button"
+                        id="triggerId"
+                        data-bs-toggle="dropdown"
+                        aria-haspopup="true"
+                        aria-expanded="false"
+                    >
+                        Departments
+                    </button>
+                    <div
+                        class="dropdown-menu dropdown-menu-start"
+                        aria-labelledby="triggerId"
+                    >
+                        <a class="dropdown-item" href="#" id="departmentF" data-value="1">Front end</a>
+                        <a class="dropdown-item" href="#" id="departmentB" data-value="2">Back end</a>
+                        <a class="dropdown-item" href="#" id="departmentA" data-value="3">App Development</a>
+                        <a class="dropdown-item" href="#" id="departmentS" data-value="4">SQL DataBase Dev</a>
+                        <a class="dropdown-item" href="#" id="departmentN" data-value="5">Neo4j DataBase Dev</a>
+                        <a class="dropdown-item" href="#" id="departmenTt" data-value="8">Testing</a>
+                        <a class="dropdown-item" href="#" id="departmentSy" data-value="9">SysAdmin and Networking</a>
+                    
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="#" id="departmentP" data-value="6">Project Manager</a>
+                        <a class="dropdown-item" href="#" id="departmentG" data-value="7">General</a>
+                    </div>
+                </div>
+            </form>
+            <input type="submit" id="register" name="Register">
+        </div>
+
+
+        <script type="text/javascript" src="./controllers/accountDataType.js"></script> 
+        <script type="text/javascript" src="./controllers/departemts.js"></script> 
+        <script type="text/javascript" src="./controllers/register.js"></script> 
+
+        <script
+            src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+            integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+            crossorigin="anonymous"
+        ></script>
+
+        <script
+            src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"
+            integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+"
+            crossorigin="anonymous"
+        ></script>
+    </body>
+</html>

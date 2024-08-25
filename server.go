@@ -12,6 +12,7 @@ func main() {
 	if err == nil {
 		fmt.Println("Server started")
 		Api.InitRoutes()
+		Api.ViewsRouter()
 		Api.Listen()
 	}
 

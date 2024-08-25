@@ -17,7 +17,7 @@ func ValidAccountInfo(u datatypes.ACCOUNT) error {
 	if u.Passwd == "" {
 		return fmt.Errorf("el campo 'Password' es obligatorio")
 	}
-	if u.Department_FK < 0 && u.Department_FK > 8 {
+	if u.Department_FK < 0 && u.Department_FK > 10 {
 		return fmt.Errorf("el campo 'Department' no es válido")
 	}
 

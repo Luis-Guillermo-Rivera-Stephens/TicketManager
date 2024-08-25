@@ -10,6 +10,7 @@ import (
 
 func (api *API) InitRoutes() {
 	fmt.Println("Starting the routes")
+
 	public := api.router.NewRoute().Subrouter()
 	protected := api.router.NewRoute().Subrouter()
 	protected.Use(

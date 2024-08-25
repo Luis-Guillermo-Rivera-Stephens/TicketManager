@@ -5,14 +5,20 @@ ALTER PROCEDURE CREATE_ACCOUNT (
 	@name varchar(100),
 	@email varchar(100),
 	@password varchar(100),
-	@departmentID int,
-	@IsPM bit
+	@departmentID int
 ) AS
 BEGIN
 BEGIN TRANSACTION
 	BEGIN TRY 
 		DECLARE @ID int
 		SET @ID = (SELECT COUNT(A.ID_Account) FROM ACCOUNTS A) + 1
+
+		DECLARE @IsPM bit
+		SET @IsPM = 0
+		IF @departmentID = 6 or @departmentID = 7
+		BEGIN
+			SET @IsPM = 1
+		END
 
 		INSERT INTO ACCOUNTS (ID_Account, Name, Email, Passwd, IsPM, Department_FK, IsStarted)
 		VALUES (@ID, @name, @email, @password, @IsPM, @departmentID, 0)

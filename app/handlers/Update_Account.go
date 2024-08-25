@@ -32,7 +32,7 @@ func Update_Password(w http.ResponseWriter, r *http.Request) {
 
 	var resultID int
 
-	result := db.Exec("EXEC UPDATE_ACCOUNT_PASSWORD ?, ?", id, password).Scan(&resultID)
+	result := db.Raw("EXEC UPDATE_ACCOUNT_PASSWORD ?, ?", id, password).Scan(&resultID)
 
 	if result.Error != nil {
 		http.Error(w, result.Error.Error(), http.StatusInternalServerError)

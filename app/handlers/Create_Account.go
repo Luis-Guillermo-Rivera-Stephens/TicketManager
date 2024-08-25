@@ -34,7 +34,7 @@ func Create_Account(w http.ResponseWriter, r *http.Request) {
 	fmt.Println(Account)
 	var id int
 
-	result := db.Raw("EXEC CREATE_ACCOUNT ?, ?, ?, ?, ?", Account.Name, Account.Email, Account.Passwd, Account.Department_FK, Account.IsPM).Scan(&id)
+	result := db.Raw("EXEC CREATE_ACCOUNT ?, ?, ?, ?", Account.Name, Account.Email, Account.Passwd, Account.Department_FK).Scan(&id)
 
 	fmt.Println(id)
 

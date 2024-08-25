@@ -3,6 +3,11 @@ email: memoriverastephens@gmail.com
 password: P4$$W0rD123A
 
 ###
+GET http://localhost:8080/account
+email: memoriverastephens@gmail.com
+password: P4$$W0rD123A5
+
+###
 POST http://localhost:8080/account
 Content-Type: application/json
 
@@ -21,10 +26,12 @@ DELETE http://localhost:8080/account
 email: memoriverastephens@gmail.com
 token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdXRob3JpemVkIjp0cnVlLCJleHAiOjE3MjQ1NDgwOTcsIm5hbWUiOiJMdWlzIEd1aWxsZXJtbyBSaXZlcmEgU3RlcGhlbnMkMmEkMTAkeW5zTUpGS3RCNWI3WncyM0IzR0gyZWtoRzZTcXlNQkpSdXRqUkdXSjVpZmNtTC9jUklGb2UifQ.4VTr6d6gcIZ_QKY0q70EMMAvqz0t20gsbW8ydpT3924
 
+###
 PUT http://localhost:8080/account
 email: memoriverastephens@gmail.com
-token: eyJhbGciOiJIUzI1NiIsInR5cCI
-{
-    "password": "avcdeajdsnsa",
-    "newpassword": "asdauisd"
-}
+token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdXRob3JpemVkIjp0cnVlLCJleHAiOjE3MjQ1NjA1MzYsIm5hbWUiOiJMdWlzIEd1aWxsZXJtbyBSaXZlcmEgU3RlcGhlbnMkMmEkMTAkOWVSTkhEaEJ3MjFOVThNd2I4aTZXZVlKQVp6NTZZMUdYbDVZUnJKalR6bGlpREJ2RHpQVU8ifQ.ZQXOatErflUL0Zo9wIl0HGaJb9_IamOzUIxGWHm2P6Q
+
+    {
+        "password": "P4$$W0rD123A",
+        "new_password": "P4$$W0rD123A5"
+    }
