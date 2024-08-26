@@ -42,4 +42,26 @@ func (api *API) ViewsRouter() {
 		http.ServeFile(w, r, filePath)
 	})
 
+	file_service.HandleFunc("/update", func(w http.ResponseWriter, r *http.Request) {
+		filePath, err := filepath.Abs(filepath.Join("app", "views/updatepass.html"))
+		if err != nil {
+			http.Error(w, "File not found", http.StatusNotFound)
+			return
+		}
+		fmt.Println("filepath: ", filePath)
+
+		http.ServeFile(w, r, filePath)
+	})
+
+	file_service.HandleFunc("/home", func(w http.ResponseWriter, r *http.Request) {
+		filePath, err := filepath.Abs(filepath.Join("app", "views/home.html"))
+		if err != nil {
+			http.Error(w, "File not found", http.StatusNotFound)
+			return
+		}
+		fmt.Println("filepath: ", filePath)
+
+		http.ServeFile(w, r, filePath)
+	})
+
 }

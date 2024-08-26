@@ -1,3 +1,5 @@
+starter()
+
 document.getElementById("login").addEventListener('click', (event)=>{
 
     event.preventDefault();
@@ -13,7 +15,17 @@ document.getElementById("login").addEventListener('click', (event)=>{
     xhr.onload= (req, res) => {
         if (xhr.status == 200) {
             var data = JSON.parse(xhr.responseText);
-            console.log(data);
+            var token = xhr.getResponseHeader("token")
+            console.log(data, "  token:  ", token);
+            logger(data, token)
+            console.log(data.isstarted)
+            if (data.isstarted == false){
+                console.log("Redirect to update")
+                window.location.href = 'http://localhost:8080/update';
+            } else {
+                console.log("Redirect to home")
+                window.location.href = 'http://localhost:8080/home';
+            }
         }
         else {
             console.log("error trying to get the account");

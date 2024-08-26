@@ -39,6 +39,7 @@ func (api *API) InitRoutes() {
 	update_router := protected.NewRoute().Subrouter()
 	update_router.Use(
 		middlewares.PasswordAuthentification,
+		middlewares.ValidPassword,
 		middlewares.HashPassword)
 
 	update_router.HandleFunc("/account", handlers.Update_Password).Methods(http.MethodPut)
