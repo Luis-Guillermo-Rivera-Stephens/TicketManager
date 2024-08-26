@@ -15,5 +15,8 @@ document.getElementById("login").addEventListener('click', (event)=>{
             var data = JSON.parse(xhr.responseText);
             console.log(data);
         }
+        else {
+            console.log("error trying to get the account");
+        }
     }
 })

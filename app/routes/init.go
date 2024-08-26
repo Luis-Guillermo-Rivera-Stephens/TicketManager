@@ -4,24 +4,34 @@ import (
 	"fmt"
 	"net/http"
 	"path/filepath"
+
+	"github.com/Luis-Guillermo-Rivera-Stephens/TicketManager/app/middlewares"
 )
 
 func (api *API) ViewsRouter() {
 
-	/*api.router.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
-		// Construye la ruta completa al archivo home.html
-		filePath, err := filepath.Abs(filepath.Join("..", "views", "home.html"))
+	file_service := api.router.NewRoute().Subrouter()
+	file_service.Use(middlewares.SetContentTypeMiddleware)
+
+	stylesDir := http.Dir("app/views/styles/")
+	stylesHandler := http.StripPrefix("/styles/", http.FileServer(stylesDir))
+	file_service.PathPrefix("/styles/").Handler(stylesHandler).Methods("GET")
+
+	controllersDir := http.Dir("app/views/controllers/")
+	controllersHandler := http.StripPrefix("/controllers/", http.FileServer(controllersDir))
+	file_service.PathPrefix("/controllers/").Handler(controllersHandler).Methods("GET")
+
+	file_service.HandleFunc("/register", func(w http.ResponseWriter, r *http.Request) {
+		filePath, err := filepath.Abs(filepath.Join("app", "views/register.html"))
 		if err != nil {
 			http.Error(w, "File not found", http.StatusNotFound)
 			return
 		}
 
-		// Envía el archivo home.html al cliente
 		http.ServeFile(w, r, filePath)
-	})*/
+	})
 
-	api.router.HandleFunc("/login", func(w http.ResponseWriter, r *http.Request) {
-		// Construye la ruta completa al archivo home.html
+	file_service.HandleFunc("/login", func(w http.ResponseWriter, r *http.Request) {
 		filePath, err := filepath.Abs(filepath.Join("app", "views/login.html"))
 		if err != nil {
 			http.Error(w, "File not found", http.StatusNotFound)
@@ -29,7 +39,6 @@ func (api *API) ViewsRouter() {
 		}
 		fmt.Println("filepath: ", filePath)
 
-		// Envía el archivo home.html al cliente
 		http.ServeFile(w, r, filePath)
 	})
 

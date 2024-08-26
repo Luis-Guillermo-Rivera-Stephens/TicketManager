@@ -23,9 +23,25 @@ document.getElementById('register').addEventListener('click', () => {
     var email = document.getElementById('email').value;
     var password = document.getElementById('password').value;
     let account = new Account(0,name, email, password, false, department, false);
-    let accountsJSON = JSON.stringify(account);
-    console.log(accountsJSON)
+    let accountJSON = JSON.stringify(account);
+    console.log(accountJSON)
 
-    
+    let xhr = new XMLHttpRequest();
+    xhr.open("POST", "http://localhost:8080/account");
+    xhr.setRequestHeader('Content-Type','application/json');  
+    xhr.send(accountJSON);
+
+    xhr.onload = (req, res) => {
+        if (xhr.status == 201){
+            console.log("usuario registrado");
+        } else if (xhr.status == 401){
+            console.log("usuario ya existe");
+        }
+        else {
+            console.log(xhr.responseText);
+        }
+            
+    }
+
 
 })
