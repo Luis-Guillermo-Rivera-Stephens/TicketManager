@@ -12,6 +12,7 @@ function starter() {
 
     // Verifica si 'SSH' no está definido en sessionStorage
     if (!sessionStorage.SSH) {
+        console.log("Starting the SSH");
         // Inicializa las propiedades si 'SSH' no existe
         aux.started = false;
         aux.logged = false;
@@ -19,6 +20,7 @@ function starter() {
         aux.token = null;
     } else {
         // Si 'SSH' existe, recupera los valores
+        console.log("Getting the SSH info")
         aux.started = JSON.parse(sessionStorage.SSH).started;
         aux.logged = JSON.parse(sessionStorage.SSH).logged;
         aux.account = JSON.parse(sessionStorage.SSH).account;
@@ -75,4 +77,9 @@ function get_email(){
         let email = JSON.parse(sessionStorage.SSH).account.email
         return email
     }
+}
+
+function islogged(){
+    return JSON.parse(sessionStorage.SSH).logged;
+
 }

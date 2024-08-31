@@ -1,0 +1,40 @@
+.tickets-table table {
+    margin:10px;
+    width: 100%; /* Ancho de la tabla al 100% de la página */
+
+  }
+  
+  .tickets-table thead {
+    background-color: #aeaaaa; /* Color rojo para la fila thead */
+    border-top-left-radius: 3px; /* Borde de la tabla */
+    border-top-right-radius: 3px; /* Borde de la tabla */
+  }
+  
+  .tickets-table th, .tickets-table td {
+    padding: 10px; /* Espacio entre celdas */
+    border: 1px solid #ddd; /* Borde entre celdas */
+  }
+
+  .tickets-table .ticket-row {
+    background-color: #ffffff;
+  }
+
+  .tickets-table .ticket-row:hover{
+    background-color: #f7f7f7;
+  }
+  
+  .tickets-table .id_td{
+    width: 50px; /* Ancho fijo para la columna ID */
+  }
+  
+  .tickets-table .title_td{
+    width: 200px; /* Ancho para la columna Título */
+  }
+  
+  .tickets-table .description_td{
+    width: 400px; /* Ancho para la columna Descripción */
+  }
+  
+  .tickets-table .owner_td, .tickets-table .status_td{
+    width: 150px; /* Ancho para las columnas Owner y Status */
+  }

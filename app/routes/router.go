@@ -13,9 +13,9 @@ func (api *API) InitRoutes() {
 
 	public := api.router.NewRoute().Subrouter()
 	protected := api.router.NewRoute().Subrouter()
-	protected.Use(
-		middlewares.VerifyJWT,
-		middlewares.VerifyEmail)
+	account_protected := protected.NewRoute().Subrouter()
+	protected.Use(middlewares.VerifyJWT)
+	account_protected.Use(middlewares.VerifyEmail)
 
 	login := public.NewRoute().Subrouter()
 	login.Use(
@@ -34,13 +34,20 @@ func (api *API) InitRoutes() {
 
 	register.HandleFunc("/account", handlers.Create_Account).Methods(http.MethodPost)
 
-	protected.HandleFunc("/account", handlers.Delete_Account).Methods(http.MethodDelete)
+	account_protected.HandleFunc("/account", handlers.Delete_Account).Methods(http.MethodDelete)
 
-	update_router := protected.NewRoute().Subrouter()
+	update_router := account_protected.NewRoute().Subrouter()
 	update_router.Use(
 		middlewares.PasswordAuthentification,
 		middlewares.ValidPassword,
 		middlewares.HashPassword)
 
 	update_router.HandleFunc("/account", handlers.Update_Password).Methods(http.MethodPut)
+
+	tickets := protected.NewRoute().Subrouter()
+	tickets.Use(middlewares.AccountExistByID,
+		middlewares.IsPM)
+
+	tickets.HandleFunc("/tickets", handlers.Create_Ticket).Methods(http.MethodPost)
+
 }

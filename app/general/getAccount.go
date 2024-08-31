@@ -19,7 +19,7 @@ func GetAccount(id int) (datatypes.ACCOUNT, error) {
 		return datatypes.ACCOUNT{}, result.Error
 	}
 	if result.RowsAffected == 0 {
-		return datatypes.ACCOUNT{}, fmt.Errorf("no se encontro lo buscado")
+		return datatypes.ACCOUNT{}, fmt.Errorf("no se encontro la cuenta")
 
 	}
 	return User, nil

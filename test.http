@@ -1,6 +1,6 @@
 GET http://localhost:8080/account
 email: memoriverastephens@gmail.com
-password: P4$$W0rD123A
+password: P4$$W0rD123A5
 
 ###
 GET http://localhost:8080/account
@@ -35,3 +35,20 @@ token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdXRob3JpemVkIjp0cnVlLCJleHAiOjE3
         "password": "P4$$W0rD123A",
         "new_password": "P4$$W0rD123A5"
     }
+
+
+###
+POST http://localhost:8080/tickets
+id:3
+token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdXRob3JpemVkIjp0cnVlLCJleHAiOjE3MjUxNTY4NTcsIm5hbWUiOiJMdWlzIEd1aWxsZXJtbyBSaXZlcmEgU3RlcGhlbnMkMmEkMTAkUkpWU1Z4RFZ0aWJMQkJDOXN3QjJrZXI5SktON1EyZEg4b0kvQUFORy9SZ3JrL25LTVhTTlcifQ.5S1OuWFYWiT58YtdneogNSdw0YbXCllzmAUqWw63-GI
+
+{
+    "id_ticket":0,
+    "title":"Ticket de prueba",
+    "t_description":"Esta es una descripción de prueba",
+    "creation_date": "",
+    "id_account": 0,
+    "owner": "",
+    "department": "FrontEnd",
+    "status": "New Unassigned"
+}

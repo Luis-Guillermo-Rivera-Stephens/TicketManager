@@ -22,6 +22,11 @@ document.getElementById('register').addEventListener('click', () => {
     var name = document.getElementById('name').value;
     var email = document.getElementById('email').value;
     var password = document.getElementById('password').value;
+    if (validInfo(name, email, password, department) === 0 ){
+        console.log("error en algun campo")
+        return
+    }
+    
     let account = new Account(0,name, email, password, false, department, false);
     let accountJSON = JSON.stringify(account);
     console.log(accountJSON)
@@ -45,3 +50,25 @@ document.getElementById('register').addEventListener('click', () => {
 
 
 })
+
+function validInfo(name, email, password, department) {
+    if (name === "") {
+        console.log("Nombre invalido")
+        return 0
+    }
+    if (email === "") {
+        console.log("Correo invalido")
+        return 0
+    }
+    if (password === "") {
+        console.log("Contraseña invalida")
+        return 0
+    }
+    if (department === 0) {
+        console.log("Departamento invalido")
+        return 0
+    }
+
+    return 1
+
+}

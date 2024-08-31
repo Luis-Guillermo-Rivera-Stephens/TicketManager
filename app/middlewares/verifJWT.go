@@ -48,9 +48,9 @@ func verifyJWTFunc(tokenString string) (*jwt.Token, error) {
 	}
 
 	if claims, ok := token.Claims.(jwt.MapClaims); ok && token.Valid {
-		fmt.Println("Token is valid")
 		fmt.Println("name:", claims["name"])
 		fmt.Println("Authorized:", claims["authorized"])
+		fmt.Println("Token is valid")
 		return token, nil
 	}
 
