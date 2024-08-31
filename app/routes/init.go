@@ -28,6 +28,8 @@ func (api *API) ViewsRouter() {
 			return
 		}
 
+		fmt.Println("filepath: ", filePath)
+
 		http.ServeFile(w, r, filePath)
 	})
 

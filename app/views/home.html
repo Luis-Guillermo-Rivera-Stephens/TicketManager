@@ -1,11 +1,131 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home</title>
-</head>
-<body>
-    <h1>Hola Mundo</h1>
-</body>
+    <head>
+        <title>Home</title>
+        <!-- Required meta tags -->
+        <meta charset="utf-8" />
+        <meta
+            name="viewport"
+            content="width=device-width, initial-scale=1, shrink-to-fit=no"
+        />
+
+        <!-- Bootstrap CSS v5.2.1 -->
+        <link
+            href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+            rel="stylesheet"
+            integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+            crossorigin="anonymous"
+        />
+        <link rel="stylesheet" href="/styles/home.css">
+    </head>
+
+    <body>
+        <header>
+            <!--Navbar-->
+            <nav
+                class="navbar navbar-expand-sm navbar-light bg-light"
+            >
+                <div class="container">
+                    <a class="navbar-brand" href="#">Ticket Manager</a>
+                    <button
+                        class="navbar-toggler d-lg-none"
+                        type="button"
+                        data-bs-toggle="collapse"
+                        data-bs-target="#collapsibleNavId"
+                        aria-controls="collapsibleNavId"
+                        aria-expanded="false"
+                        aria-label="Toggle navigation"
+                    >
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="collapsibleNavId">
+                        <ul class="navbar-nav me-auto mt-2 mt-lg-0">
+                            <li class="nav-item">
+                                <div id="navbar_info">Name - Department</div>
+                            </li>
+                        </ul>
+                        <div class="d-flex my-2 my-lg-0">
+                            <nav
+                                class="nav justify-content-center  "
+                            >
+                                <a class="nav-link active" id="logout" aria-current="page"
+                                    >Perfil</a
+                                >
+                                <a class="nav-link active" id="logout" aria-current="page"
+                                    >Cerrar sesion</a
+                                >
+                            </nav>
+                            
+                        </div>
+                    </div>
+                </div>
+            </nav>
+            
+        </header>
+
+
+
+
+
+        <main>
+            <nav class="navbar navbar-expand-sm navbar-light bg-light">
+                <div class="container">
+                    <div class="collapse navbar-collapse" id="collapsibleNavId">
+                        <ul class="navbar-nav me-auto mt-2 mt-lg-0">
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" id="dropdownId" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">¿Qué tickets deseas ver?</a>
+                                <div class="dropdown-menu" aria-labelledby="dropdownId">
+                                    <a class="dropdown-item" href="#">Todos los pendientes</a>
+                                    <a class="dropdown-item" href="#">Todos los tickets abiertos</a>
+                                    <a class="dropdown-item" href="#">Mis tickets</a>
+                                    <a class="dropdown-item" href="#">Mi departamento</a>
+                                    <a class="dropdown-item" href="#">Sin asignar de mi departamento</a>
+                                    <a class="dropdown-item" href="#">Todos los tickets</a>
+                                    <a class="dropdown-item" href="#">Tickets cerrados</a>
+                                    <div class="dropdown-divider"></div>
+                                    <div class="dropdown-divider"></div>
+                                    <a class="dropdown-item" href="#">Frontend</a>
+                                    <a class="dropdown-item" href="#">Backend</a>
+                                    <a class="dropdown-item" href="#">App developer</a>
+                                    <a class="dropdown-item" href="#">SQL Developer</a>
+                                    <a class="dropdown-item" href="#">Neo4j Developer</a>
+                                    <a class="dropdown-item" href="#">Testing</a>
+                                    <a class="dropdown-item" href="#">Sysadmin and networking</a>
+                                    <a class="dropdown-item" href="#">Project Manager</a>
+                                    
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+ 
+        </main>
+
+
+
+
+        <footer>
+            <!-- place footer here -->
+        </footer>
+
+
+        <!--Personal JavaScript Libraries-->
+        <script src="/controllers/session_storage.js"></script>
+        <script src="/controllers/departemts.js"></script> 
+        <script src="/controllers/home.js"></script>
+
+        <!-- Bootstrap JavaScript Libraries -->
+        <script
+            src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+            integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+            crossorigin="anonymous"
+        ></script>
+
+        <script
+            src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"
+            integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+"
+            crossorigin="anonymous"
+        ></script>
+    </body>
 </html>

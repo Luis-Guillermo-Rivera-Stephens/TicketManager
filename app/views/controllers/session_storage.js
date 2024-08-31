@@ -76,3 +76,8 @@ function get_email(){
         return email
     }
 }
+
+function islogged(){
+    return JSON.parse(sessionStorage.SSH).logged;
+
+}
