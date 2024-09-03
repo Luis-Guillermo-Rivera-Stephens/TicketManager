@@ -1,3 +1,10 @@
+starter()
+
+if (!islogged()){
+    window.location.href = 'http://localhost:8080/login';
+}
+
+
 document.getElementById('submit').addEventListener("click", () => {
     let currentpass = document.getElementById("password").value;
     let newpass1 = document.getElementById("newpassword1").value;
@@ -24,6 +31,7 @@ document.getElementById('submit').addEventListener("click", () => {
             console.log(data);
             unlogger()
             logger(data, token)
+            console.log("Redirect to home")
             window.location.href = 'http://localhost:8080/home';
         }
         else {

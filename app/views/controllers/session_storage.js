@@ -83,3 +83,5 @@ function islogged(){
     return JSON.parse(sessionStorage.SSH).logged;
 
 }
+
+starter()
