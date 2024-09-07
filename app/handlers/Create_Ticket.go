@@ -33,7 +33,6 @@ func Create_Ticket(w http.ResponseWriter, r *http.Request) {
 	Ticket.CreationDate = time.Now().Format("2006-01-02 15:04:05.000")
 
 	fmt.Println(Ticket)
-	fmt.Println("EXEC CREATE_TICKET ", Ticket.Title, Ticket.T_Description, datatypes.DepartmentsHash[Ticket.Department], Ticket.CreationDate)
 
 	result := db.Exec("EXEC CREATE_TICKET ?, ?, ?, ?", Ticket.Title, Ticket.T_Description, datatypes.DepartmentsHash[Ticket.Department], Ticket.CreationDate)
 

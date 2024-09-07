@@ -45,9 +45,16 @@ func (api *API) InitRoutes() {
 	update_router.HandleFunc("/account", handlers.Update_Password).Methods(http.MethodPut)
 
 	tickets := protected.NewRoute().Subrouter()
-	tickets.Use(middlewares.AccountExistByID,
-		middlewares.IsPM)
+	tickets.Use(middlewares.AccountExistByID)
+	department_tickets_router := tickets.NewRoute().Subrouter()
+	department_tickets_router.Use(middlewares.VerifyDepartment)
 
-	tickets.HandleFunc("/tickets", handlers.Create_Ticket).Methods(http.MethodPost)
+	tickets.HandleFunc("/tickets/all", handlers.GetAllTickets).Methods(http.MethodGet)
+	department_tickets_router.HandleFunc("/tickets/department/{d_id}", handlers.GetTicketsByDepartment).Methods(http.MethodGet)
+
+	create_ticket_router := tickets.NewRoute().Subrouter()
+	create_ticket_router.Use(middlewares.IsPM)
+
+	create_ticket_router.HandleFunc("/tickets", handlers.Create_Ticket).Methods(http.MethodPost)
 
 }

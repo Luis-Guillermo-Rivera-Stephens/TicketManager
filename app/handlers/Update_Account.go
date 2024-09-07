@@ -58,6 +58,6 @@ func Update_Password(w http.ResponseWriter, r *http.Request) {
 	fmt.Println(Account)
 	w.Header().Add("Content-Type", "application/json")
 	w.Header().Add("Token", token)
-	w.WriteHeader(http.StatusCreated)
+	w.WriteHeader(http.StatusAccepted)
 	json.NewEncoder(w).Encode(Account)
 }

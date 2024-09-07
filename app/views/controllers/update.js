@@ -25,13 +25,14 @@ document.getElementById('submit').addEventListener("click", () => {
 
     xhr.send(JSON.stringify(newpass));
     xhr.onload= (req, res) => {
-        if (xhr.status == 201) {
+        if (xhr.status == 202) {
             let data = JSON.parse(xhr.responseText)
             let token = xhr.getResponseHeader('token')
             console.log(data);
             unlogger()
             logger(data, token)
             console.log("Redirect to home")
+            window.location.href = 'http://localhost:8080/home'
             window.location.href = 'http://localhost:8080/home';
         }
         else {
