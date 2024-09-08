@@ -1,6 +1,6 @@
 GET http://localhost:8080/account
 email: memoriverastephens@gmail.com
-password: P4$$W0rD123A5
+password: P4$$W0rD123A
 
 ###
 GET http://localhost:8080/account
@@ -52,3 +52,31 @@ token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdXRob3JpemVkIjp0cnVlLCJleHAiOjE3
     "department": "FrontEnd",
     "status": "New Unassigned"
 }
+
+###
+GET http://localhost:8080/tickets/all
+token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdXRob3JpemVkIjp0cnVlLCJleHAiOjE3MjU3Mjk0ODQsIm5hbWUiOiJMdWlzIEd1aWxsZXJtbyBSaXZlcmEgU3RlcGhlbnMkMmEkMTAkOGJmZThjQ0c0NDhXUUw5SjZVYS9tZTh4OTVEN0xEbFRDaWdmakhaU3VLZy9hSWVJZXNHY08ifQ.YZOmXhmlxp0lBNAGIGRU7PFwCCTJlV7BO_unNlcZQ3E
+id:2
+
+###
+GET http://localhost:8080/tickets/department/3
+token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdXRob3JpemVkIjp0cnVlLCJleHAiOjE3MjU2ODMzOTgsIm5hbWUiOiJMdWlzIEd1aWxsZXJtbyBSaXZlcmEgU3RlcGhlbnMkMmEkMTAkOGJmZThjQ0c0NDhXUUw5SjZVYS9tZTh4OTVEN0xEbFRDaWdmakhaU3VLZy9hSWVJZXNHY08ifQ.7I8axKIP0CggXmUPCwdxB8sPrfBDPeZpBqRiMCLDEYs
+id:2
+
+###
+GET http://localhost:8080/tickets/open
+token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdXRob3JpemVkIjp0cnVlLCJleHAiOjE3MjU2ODMzOTgsIm5hbWUiOiJMdWlzIEd1aWxsZXJtbyBSaXZlcmEgU3RlcGhlbnMkMmEkMTAkOGJmZThjQ0c0NDhXUUw5SjZVYS9tZTh4OTVEN0xEbFRDaWdmakhaU3VLZy9hSWVJZXNHY08ifQ.7I8axKIP0CggXmUPCwdxB8sPrfBDPeZpBqRiMCLDEYs
+id:2
+
+###
+GET http://localhost:8080/tickets/closed
+token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdXRob3JpemVkIjp0cnVlLCJleHAiOjE3MjU2ODMzOTgsIm5hbWUiOiJMdWlzIEd1aWxsZXJtbyBSaXZlcmEgU3RlcGhlbnMkMmEkMTAkOGJmZThjQ0c0NDhXUUw5SjZVYS9tZTh4OTVEN0xEbFRDaWdmakhaU3VLZy9hSWVJZXNHY08ifQ.7I8axKIP0CggXmUPCwdxB8sPrfBDPeZpBqRiMCLDEYs
+id:2
+
+###
+GET http://localhost:8080/tickets/owner
+token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdXRob3JpemVkIjp0cnVlLCJleHAiOjE3MjU3Mjk0ODQsIm5hbWUiOiJMdWlzIEd1aWxsZXJtbyBSaXZlcmEgU3RlcGhlbnMkMmEkMTAkOGJmZThjQ0c0NDhXUUw5SjZVYS9tZTh4OTVEN0xEbFRDaWdmakhaU3VLZy9hSWVJZXNHY08ifQ.YZOmXhmlxp0lBNAGIGRU7PFwCCTJlV7BO_unNlcZQ3E
+id:2
+
+
+

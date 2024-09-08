@@ -69,6 +69,16 @@ function get_token(){
         return token
     }
 }
+
+function set_token(token){
+    let aux = new SSHandler();
+    aux.started = JSON.parse(sessionStorage.SSH).started;
+    aux.logged = JSON.parse(sessionStorage.SSH).logged;
+    if (aux.started === true && aux.logged === true) {
+        JSON.parse(sessionStorage.SSH).token = token
+    }
+}
+
 function get_email(){
     let aux = new SSHandler();
     aux.started = JSON.parse(sessionStorage.SSH).started;
@@ -76,6 +86,16 @@ function get_email(){
     if (aux.started === true && aux.logged === true) {
         let email = JSON.parse(sessionStorage.SSH).account.email
         return email
+    }
+}
+
+function get_id_account(){
+    let aux = new SSHandler();
+    aux.started = JSON.parse(sessionStorage.SSH).started;
+    aux.logged = JSON.parse(sessionStorage.SSH).logged;
+    if (aux.started === true && aux.logged === true) {
+        let id_account = JSON.parse(sessionStorage.SSH).account.id_account
+        return id_account
     }
 }
 

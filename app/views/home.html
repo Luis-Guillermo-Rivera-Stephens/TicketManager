@@ -73,23 +73,23 @@
                             <li class="nav-item dropdown">
                                 <a class="nav-link dropdown-toggle" href="#" id="dropdownId" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">¿Qué tickets deseas ver?</a>
                                 <div class="dropdown-menu" aria-labelledby="dropdownId">
-                                    <a class="dropdown-item" href="#">Todos los pendientes</a>
-                                    <a class="dropdown-item" href="#">Todos los tickets abiertos</a>
-                                    <a class="dropdown-item" href="#">Mis tickets</a>
-                                    <a class="dropdown-item" href="#">Mi departamento</a>
-                                    <a class="dropdown-item" href="#">Sin asignar de mi departamento</a>
-                                    <a class="dropdown-item" href="#">Todos los tickets</a>
-                                    <a class="dropdown-item" href="#">Tickets cerrados</a>
+                                    <a class="dropdown-item" id="get-tickets-all-open">Todos los tickets abiertos</a>
+                                    <a class="dropdown-item" id="get-tickets-all-unassigned">Todos los pendientes</a>
+                                    <a class="dropdown-item" id="get-tickets-mytickets">Mis tickets</a>
+                                    <a class="dropdown-item" id="get-tickets-mydepartment">Mi departamento</a>
+                                    <a class="dropdown-item" id="get-tickets-unassigned-bydepartment">Sin asignar de mi departamento</a>
+                                    <a class="dropdown-item" id="get-tickets-all">Todos los tickets</a>
+                                    <a class="dropdown-item" id="get-tickets-closed">Tickets cerrados</a>
                                     <div class="dropdown-divider"></div>
                                     <div class="dropdown-divider"></div>
-                                    <a class="dropdown-item" href="#">Frontend</a>
-                                    <a class="dropdown-item" href="#">Backend</a>
-                                    <a class="dropdown-item" href="#">App developer</a>
-                                    <a class="dropdown-item" href="#">SQL Developer</a>
-                                    <a class="dropdown-item" href="#">Neo4j Developer</a>
-                                    <a class="dropdown-item" href="#">Testing</a>
-                                    <a class="dropdown-item" href="#">Sysadmin and networking</a>
-                                    <a class="dropdown-item" href="#">Project Manager</a>
+                                    <a class="dropdown-item" id="get-tickets-front" value = 1>Frontend</a>
+                                    <a class="dropdown-item" id="get-tickets-back" value = 2>Backend</a>
+                                    <a class="dropdown-item" id="get-tickets-app" value = 3>App developer</a>
+                                    <a class="dropdown-item" id="get-tickets-sql" value = 4>SQL Developer</a>
+                                    <a class="dropdown-item" id="get-tickets-neo4j" value = 5>Neo4j Developer</a>
+                                    <a class="dropdown-item" id="get-tickets-testing" value = 8>Testing</a>
+                                    <a class="dropdown-item" id="get-tickets-sysadmin" value = 9>Sysadmin and networking</a>
+                                    <a class="dropdown-item" id="get-tickets-PM" value = 6>Project Manager</a>
                                     
                                 </div>
                             </li>
@@ -107,21 +107,16 @@
                         <th>ID</th>           
                         <th>Título</th>       
                         <th>Descripción</th>  
-                        <th>Owner</th>        
-                        <th>Status</th>       
+                        <th>Owner</th>    
+                        <th>Department</th>    
+                        <th>Status</th>    
+                        <th>Creation Date</th>   
                       </tr>
                     </thead>
 
 
                     <tbody id="tickets-body">      
-                      <tr class="ticket-row">       
-                        <td class="id_td">1</td>            
-                        <td class="title_td">Proyecto A</td>   
-                        <td class="description_td">Descripción del proyecto A</td> 
-                        <td class="owner_td">Juan Pérez</td>   
-                        <td class="status_td">En progreso</td>  
-                      </tr>
-                      <!-- Puedes añadir más filas de datos aquí -->
+
                     </tbody>
                   </table> 
                   

@@ -46,11 +46,18 @@ func (api *API) InitRoutes() {
 
 	tickets := protected.NewRoute().Subrouter()
 	tickets.Use(middlewares.AccountExistByID)
+
 	department_tickets_router := tickets.NewRoute().Subrouter()
 	department_tickets_router.Use(middlewares.VerifyDepartment)
 
 	tickets.HandleFunc("/tickets/all", handlers.GetAllTickets).Methods(http.MethodGet)
+	tickets.HandleFunc("/tickets/open", handlers.GetOpenTickets).Methods(http.MethodGet)
+	tickets.HandleFunc("/tickets/closed", handlers.GetClosedTickets).Methods(http.MethodGet)
+	tickets.HandleFunc("/tickets/unassigned", handlers.GetAllUnassignedTickets).Methods(http.MethodGet)
+	tickets.HandleFunc("/tickets/owner", handlers.GetTicketsByOwner).Methods(http.MethodGet)
+
 	department_tickets_router.HandleFunc("/tickets/department/{d_id}", handlers.GetTicketsByDepartment).Methods(http.MethodGet)
+	department_tickets_router.HandleFunc("/tickets/unassigned/department/{d_id}", handlers.GetUnassignedTicketsByDepartment).Methods(http.MethodGet)
 
 	create_ticket_router := tickets.NewRoute().Subrouter()
 	create_ticket_router.Use(middlewares.IsPM)
