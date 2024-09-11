@@ -9,4 +9,5 @@ type TICKET struct {
 	OwnerName     string `json:"owner"`
 	Department    string `json:"department"`
 	Status        string `json:"status"`
+	Priority      string `json:"priority"`
 }

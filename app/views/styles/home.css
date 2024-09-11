@@ -1,0 +1,7 @@
+.ticket-row:hover {
+    background-color: aqua;
+}
+
+.ticket-row td {
+    flex: 1
+}

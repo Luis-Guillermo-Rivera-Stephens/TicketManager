@@ -20,15 +20,21 @@ document.getElementById("login").addEventListener('click', (event)=>{
             logger(data, token)
             console.log(data.isstarted)
             if (data.isstarted == false){
-                console.log("Redirect to update")
+                alerta("Ups algo salio mal","Redirect to update")
                 window.location.href = 'http://localhost:8080/update';
             } else {
                 console.log("Redirect to home")
                 window.location.href = 'http://localhost:8080/home';
             }
         }
+        else if (xhr.status == 401){
+            alerta("Ups algo salio mal","Usuario invalido, favor de revisar los campos");
+        }
+        else if (xhr.status == 400) {
+            alerta("Ups algo salio mal","Campos invalidos, favor de revisar el correo");
+        }
         else {
-            console.log("error trying to get the account");
+            alerta("Ups algo salio mal","error trying to get the account");
         }
     }
 })

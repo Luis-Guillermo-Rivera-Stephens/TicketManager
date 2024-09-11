@@ -20,7 +20,7 @@ func VerifyJWT(next http.Handler) http.Handler {
 		token, err := verifyJWTFunc(tokenString)
 		if err != nil {
 			fmt.Println(err)
-			http.Error(w, "Invalid token", http.StatusBadRequest)
+			http.Error(w, "Invalid token", http.StatusTeapot)
 			return
 		}
 		fmt.Println(token)

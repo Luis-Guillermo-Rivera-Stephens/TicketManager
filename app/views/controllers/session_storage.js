@@ -89,6 +89,16 @@ function get_email(){
     }
 }
 
+function get_department(){
+    let aux = new SSHandler();
+    aux.started = JSON.parse(sessionStorage.SSH).started;
+    aux.logged = JSON.parse(sessionStorage.SSH).logged;
+    if (aux.started === true && aux.logged === true) {
+        let department = JSON.parse(sessionStorage.SSH).account.department_fk
+        return department
+    }
+}
+
 function get_id_account(){
     let aux = new SSHandler();
     aux.started = JSON.parse(sessionStorage.SSH).started;

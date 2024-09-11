@@ -1,8 +1,8 @@
-CREATE PROCEDURE GET_UNASSIGNED_TICKETS_BY_DEPARTMENT (
+ALTER PROCEDURE GET_UNASSIGNED_TICKETS_BY_DEPARTMENT (
 	@ID_Department int
 ) AS
 BEGIN 
-	SELECT T.ID_Ticket, T.Title, T.T_Description, T.Creation_Date, A.ID_Account, A.Name AS 'Owner', D.Name AS 'Department', S.Name as 'Status'
+	SELECT T.ID_Ticket, T.Title, T.T_Description, T.Creation_Date, A.ID_Account, A.Name AS 'Owner', D.Name AS 'Department', S.Name as 'Status', T.Priority
 	FROM TICKETS T
 	JOIN T_STATUS S ON T.Status_FK = S.ID_Status
 	LEFT JOIN ACCOUNTS A ON T.Owner_FK = A.ID_Account

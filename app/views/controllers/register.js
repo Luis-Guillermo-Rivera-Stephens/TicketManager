@@ -23,7 +23,6 @@ document.getElementById('register').addEventListener('click', () => {
     var email = document.getElementById('email').value;
     var password = document.getElementById('password').value;
     if (validInfo(name, email, password, department) === 0 ){
-        console.log("error en algun campo")
         return
     }
     
@@ -34,16 +33,18 @@ document.getElementById('register').addEventListener('click', () => {
     let xhr = new XMLHttpRequest();
     xhr.open("POST", "http://localhost:8080/account");
     xhr.setRequestHeader('Content-Type','application/json');  
+
+
     xhr.send(accountJSON);
 
     xhr.onload = (req, res) => {
         if (xhr.status == 201){
-            console.log("usuario registrado");
+            alerta("Accion exitosa","usuario registrado");
         } else if (xhr.status == 401){
-            console.log("usuario ya existe");
+            alerta("Ups hubo un problema","usuario con ese email existente");
         }
         else {
-            console.log(xhr.responseText);
+            alerta("Ups hubo un problema",xhr.responseText);
         }
             
     }
@@ -53,19 +54,19 @@ document.getElementById('register').addEventListener('click', () => {
 
 function validInfo(name, email, password, department) {
     if (name === "") {
-        console.log("Nombre invalido")
+        alerta("Error ingresando los datos","Nombre invalido")
         return 0
     }
     if (email === "") {
-        console.log("Correo invalido")
+        alerta("Error ingresando los datos", "Correo invalido")
         return 0
     }
     if (password === "") {
-        console.log("Contraseña invalida")
+        alerta("Error ingresando los datos", "Contraseña invalida")
         return 0
     }
     if (department === 0) {
-        console.log("Departamento invalido")
+        alerta("Error ingresando los datos","Departamento invalido")
         return 0
     }
 

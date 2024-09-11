@@ -66,4 +66,15 @@ func (api *API) ViewsRouter() {
 		http.ServeFile(w, r, filePath)
 	})
 
+	file_service.HandleFunc("/create", func(w http.ResponseWriter, r *http.Request) {
+		filePath, err := filepath.Abs(filepath.Join("app", "views/create_tickets.html"))
+		if err != nil {
+			http.Error(w, "File not found", http.StatusNotFound)
+			return
+		}
+		fmt.Println("filepath: ", filePath)
+
+		http.ServeFile(w, r, filePath)
+	})
+
 }

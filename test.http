@@ -1,6 +1,6 @@
 GET http://localhost:8080/account
-email: memoriverastephens@gmail.com
-password: P4$$W0rD123A
+email: memorivera1@gmail.com
+password: P4$$W0rD123A5
 
 ###
 GET http://localhost:8080/account
@@ -39,8 +39,8 @@ token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdXRob3JpemVkIjp0cnVlLCJleHAiOjE3
 
 ###
 POST http://localhost:8080/tickets
-id:3
-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdXRob3JpemVkIjp0cnVlLCJleHAiOjE3MjUxNTY4NTcsIm5hbWUiOiJMdWlzIEd1aWxsZXJtbyBSaXZlcmEgU3RlcGhlbnMkMmEkMTAkUkpWU1Z4RFZ0aWJMQkJDOXN3QjJrZXI5SktON1EyZEg4b0kvQUFORy9SZ3JrL25LTVhTTlcifQ.5S1OuWFYWiT58YtdneogNSdw0YbXCllzmAUqWw63-GI
+id:4
+token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdXRob3JpemVkIjp0cnVlLCJleHAiOjE3MjYwMjEwMTIsIm5hbWUiOiJMdWlzIEd1aWxsZXJtbyQyYSQxMCQzZm1zSUIwSU00MTl5T1hkbWJXblVPS240SUVxVFh3S0ptRmFpRzZqMUhxRlBBNHFDQ012NiJ9.L5fdxsdl31jFpXzQBz4zQdQ1cAH8mRUSehSGSUBhr6Q
 
 {
     "id_ticket":0,
@@ -50,7 +50,8 @@ token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdXRob3JpemVkIjp0cnVlLCJleHAiOjE3
     "id_account": 0,
     "owner": "",
     "department": "FrontEnd",
-    "status": "New Unassigned"
+    "status": "New Unassigned",
+    "priority": "High"
 }
 
 ###

@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="es">
+<head>
+    <title>TicketManager Crear Tickets</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/styles/create_tickets.css">
+</head>
+<body>
+    <div class="modal-custom">
+        <h2 class="modal-title">Nuevo Ticket</h2>
+        <form class="principal_form">
+            <div class="form-group">
+                <label for="title">Título</label>
+                <input type="text" id="title" name="title">
+            </div>
+            <div class="form-group">
+                <label for="description">Descripción</label>
+                <textarea id="description" name="description"></textarea>
+            </div>
+            <div>
+                <div>
+                    Department: <span id="dep">None</span>
+                </div>
+                <span>
+                    Priority: <span id="pri">Baja</span>
+                </span>
+            </div>
+            
+            <div class="btn-group">
+                <button
+                    class="btn btn-secondary dropdown-toggle"
+                    type="button"
+                    id="triggerId"
+                    data-bs-toggle="dropdown"
+                    aria-haspopup="true"
+                    aria-expanded="false"
+                >
+                    Departments
+                </button>
+                <div
+                    class="dropdown-menu dropdown-menu-start"
+                    aria-labelledby="triggerId"
+                >
+                    <a class="dropdown-item" href="#" id="departmentF" data-value="1">Front end</a>
+                    <a class="dropdown-item" href="#" id="departmentB" data-value="2">Back end</a>
+                    <a class="dropdown-item" href="#" id="departmentA" data-value="3">App Development</a>
+                    <a class="dropdown-item" href="#" id="departmentS" data-value="4">SQL DataBase Dev</a>
+                    <a class="dropdown-item" href="#" id="departmentN" data-value="5">Neo4j DataBase Dev</a>
+                    <a class="dropdown-item" href="#" id="departmentT" data-value="8">Testing</a>
+                    <a class="dropdown-item" href="#" id="departmentSy" data-value="9">SysAdmin and Networking</a>
+                
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="#" id="departmentP" data-value="6">Project Manager</a>
+                </div>
+            </div>
+            <div class="btn-group">
+                <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    Prioridad
+                </button>
+                <ul class="dropdown-menu" aria-labelledby="priorityDropdown">
+                    <li><a class="dropdown-item" href="#" id="priorityB"data-value="Baja">Baja</a></li>
+                    <li><a class="dropdown-item" href="#" id="priorityM"data-value="Media">Media</a></li>
+                    <li><a class="dropdown-item" href="#" id="priorityA"data-value="Alta">Alta</a></li>
+                    <li><a class="dropdown-item" href="#" id="priorityU"data-value="Urgente">Urgente</a></li>
+                </ul>
+            </div>
+            <button id="create-ticket" type="submit" class="btn-submit">Enviar</button>
+        </form>
+    </div>
+
+    <div
+        class="modal fade"
+        id="modalIdAlerta"
+        tabindex="-1"
+        data-bs-backdrop="static"
+        data-bs-keyboard="false"
+                
+        role="dialog"
+        aria-labelledby="modalTitleId"
+        aria-hidden="true"
+    >
+        <div
+            class="modal-dialog modal-dialog-scrollable modal-dialog-centered modal-sm"
+            role="document"
+        >
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title" id="modalTitleIdAlert" style = 'color:rgb(0, 0, 0)'>
+                        Ups ... Algo salio mal
+
+                    </h4>
+                    <button
+                        type="button"
+                        class="btn-close"
+                        data-bs-dismiss="modal"
+                        aria-label="Close"
+                        onclick= "cerrarAlerta()"
+
+                    ></button>
+                </div>
+                <div class="modal-body alertaBody">
+                    <h6 id="modalIdAlertaBody"></h6>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script type="text/javascript" src="/controllers/alertas.js"></script>
+    <script type="text/javascript" src="/controllers/departemts.js"></script> 
+    <script type="text/javascript" src="/controllers/session_storage.js"></script>
+    <script type="text/javascript" src="/controllers/ticketDataType.js"></script>
+    <script type="text/javascript" src="/controllers/create_tickets.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"></script>
+</body>
+</html>

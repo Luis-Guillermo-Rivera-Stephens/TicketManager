@@ -4,6 +4,8 @@ if (!islogged()){
     window.location.href = 'http://localhost:8080/login';
 }
 
+let TicketMap = new Map();
+
 let name_department = JSON.parse(sessionStorage.SSH).account.name + " - " + array[JSON.parse(sessionStorage.SSH).account.department_fk]
 console.log(name_department)
 //document.getElementById("navbar_info").innerHTML = "Hola buenas tardes"
@@ -15,18 +17,37 @@ document.getElementById('logout').addEventListener("click", ()=>{
 })
 
 function ticket_formateado(ticket) {
-    let row = document.createElement("tr")
-    row.classList.add("ticket-row")
+    let row = document.createElement("tr");
+    row.classList.add("ticket-row");
+    row.id = `ticket-${ticket.id_ticket}`;
+    row.setAttribute('data-value', ticket.id_ticket);
+    row.setAttribute("data-bs-toggle","modal")
+    row.setAttribute("data-bs-target","#modalIdTicket")
+                
 
     row.innerHTML = `
         <td class="id_td">${ticket.id_ticket}</td>            
         <td class="title_td">${ticket.title}</td>   
         <td class="description_td">${ticket.t_description}</td> 
-        <td class="owner_td">${ticket.owner != ""? ticket.owner : "-"}</td>   
+        <td class="owner_td">${ticket.owner !== "" ? ticket.owner : "-"}</td>   
         <td class="department_td">${ticket.department}</td>
         <td class="status_td">${ticket.status}</td>  
+        <td class="priority_td">${ticket.priority}</td>  
         <td class="creation_date_td">${ticket.creation_date}</td>
-    `
+    `;
+
+    row.addEventListener("click", () => {
+        let ticket_id = parseInt(row.getAttribute('data-value')); 
+        let ticket_flag = TicketMap.has(ticket_id);
+        if (ticket_flag) {
+            let ticket_info = TicketMap.get(ticket_id)
+            console.log(ticket_info);
+            document.getElementById("modalTitleId").innerHTML = "Ticket "+ ticket_id + `: ${ticket_info.title}`;
+            document.getElementById("modalIdBody").innerHTML = ticket_info.t_description
+        } else {
+            console.error(`Ticket con ID ${ticket_id} no encontrado en TicketMap`);
+        }
+    });
 
     return row;
 }
@@ -46,12 +67,12 @@ function on_load_tickets(map, xhr) {
     }
 }
 
-
-document.getElementById('get-tickets-all-open').addEventListener("click", () => {
+function getTickets(map, route){
     let xhr = new XMLHttpRequest();
-    let map = new Map();
 
-    xhr.open('GET', 'http://localhost:8080/tickets/open');
+    let url = 'http://localhost:8080/tickets' + route
+
+    xhr.open('GET', url);
 
     let id = JSON.parse(sessionStorage.SSH).account.id_account;
     let token = get_token()
@@ -63,9 +84,60 @@ document.getElementById('get-tickets-all-open').addEventListener("click", () => 
 
     xhr.onload = () => {
         if (xhr.status == 200) {
+            set_token(xhr.getResponseHeader('token'));
             on_load_tickets(map, xhr)
         }
+        else if (xhr.status == 418) {
+            console.log('redireccionando a login por token invalido')
+            unlogger()
+            window.location.href = 'http://localhost:8080/login'
+        }
     }
-});
+}
 
+function getTicketsWithDeparment(map, route, dep){
+    let xhr = new XMLHttpRequest();
+    route += ("/" + dep)
 
+    let url = 'http://localhost:8080/tickets' + route
+
+    xhr.open('GET', url);
+
+    let id = JSON.parse(sessionStorage.SSH).account.id_account;
+    let token = get_token()
+
+    xhr.setRequestHeader('id', id);
+    xhr.setRequestHeader('token', token);
+
+    xhr.send();
+
+    xhr.onload = () => {
+        if (xhr.status == 200) {
+            set_token(xhr.getResponseHeader('token'));
+            on_load_tickets(map, xhr)
+        }
+        else if (xhr.status == 418) {
+            console.log('redireccionando a login por token invalido')
+            unlogger()
+            window.location.href = 'http://localhost:8080/login'
+        }
+    }
+}
+
+document.getElementById('get-tickets-all-open').addEventListener("click", () => getTickets(TicketMap,'/open'));
+document.getElementById("get-tickets-all").addEventListener("click",() => getTickets(TicketMap,'/all'));
+document.getElementById("get-tickets-all-unassigned").addEventListener("click", () => getTickets(TicketMap,'/unassigned'));
+document.getElementById("get-tickets-mytickets").addEventListener("click", () => getTickets(TicketMap,'/owner'));
+document.getElementById("get-tickets-closed").addEventListener("click", () => getTickets(TicketMap,'/closed'));
+
+document.getElementById("get-tickets-mydepartment").addEventListener("click", () => getTicketsWithDeparment(TicketMap,'/department', JSON.parse(sessionStorage.SSH).account.department_fk));
+document.getElementById("get-tickets-unassigned-bydepartment").addEventListener("click", () => getTicketsWithDeparment(TicketMap,'/department', JSON.parse(sessionStorage.SSH).account.department_fk));
+
+document.getElementById("get-tickets-front").addEventListener("click", () => getTicketsWithDeparment(TicketMap, `/department`, 1));
+document.getElementById("get-tickets-back").addEventListener("click", () => getTicketsWithDeparment(TicketMap, `/department`, 2));
+document.getElementById("get-tickets-app").addEventListener("click", () => getTicketsWithDeparment(TicketMap, `/department`, 3));
+document.getElementById("get-tickets-sql").addEventListener("click", () =>getTicketsWithDeparment(TicketMap, `/department`, 4));
+document.getElementById("get-tickets-neo4j").addEventListener("click", () => getTicketsWithDeparment(TicketMap, `/department`, 5));
+document.getElementById("get-tickets-testing").addEventListener("click", () => getTicketsWithDeparment(TicketMap, `/department`, 8));
+document.getElementById("get-tickets-sysadmin").addEventListener("click", () => getTicketsWithDeparment(TicketMap, `/department`, 9));
+document.getElementById("get-tickets-PM").addEventListener("click", () => getTicketsWithDeparment(TicketMap, `/department`, 6));

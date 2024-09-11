@@ -1,14 +1,15 @@
-let hashMap = {
-    "frontend": 1,
-    "backend": 2,
-    "appdev": 3,
-    "sql": 4,
-    "neo4j": 5,
-    "testing": 8,
-    "sysadmin": 9,
-    "pm": 6,
-    "general": 7
-};
+let hashMap = new Map([
+    ["Frontend", 1],
+    ["Backend", 2],
+    ["App Development", 3],
+    ["SQL Database Developer", 4],
+    ["Neo4j Database Developer", 5],
+    ["Testing", 8],
+    ["System Administrator", 9],
+    ["Project Manager", 6],
+    ["General", 7]
+]);
+
 
 let array = [
     'None', 

@@ -64,6 +64,45 @@
             <input type="submit" id="register" name="Register">
         </div>
 
+        <div
+            class="modal fade"
+            id="modalIdAlerta"
+            tabindex="-1"
+            data-bs-backdrop="static"
+            data-bs-keyboard="false"
+                
+            role="dialog"
+            aria-labelledby="modalTitleId"
+            aria-hidden="true"
+        >
+            <div
+                class="modal-dialog modal-dialog-scrollable modal-dialog-centered modal-sm"
+                role="document"
+            >
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4 class="modal-title" id="modalTitleIdAlert" style = 'color:rgb(0, 0, 0)'>
+                            Ups ... Algo salio mal
+
+                        </h4>
+                        <button
+                            type="button"
+                            class="btn-close"
+                            data-bs-dismiss="modal"
+                            aria-label="Close"
+                            onclick= "cerrarAlerta()"
+
+                        ></button>
+                    </div>
+                    <div class="modal-body alertaBody">
+                        <h6 id="modalIdAlertaBody"></h6>
+                    </div>
+                </div>
+            </div>
+    </div>
+
+    <script type="text/javascript" src="/controllers/alertas.js"></script>
+
 
         <script  src="/controllers/departemts.js"></script> 
         <script  src="/controllers/accountDataType.js"></script>

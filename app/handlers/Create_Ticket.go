@@ -34,7 +34,7 @@ func Create_Ticket(w http.ResponseWriter, r *http.Request) {
 
 	fmt.Println(Ticket)
 
-	result := db.Exec("EXEC CREATE_TICKET ?, ?, ?, ?", Ticket.Title, Ticket.T_Description, datatypes.DepartmentsHash[Ticket.Department], Ticket.CreationDate)
+	result := db.Exec("EXEC CREATE_TICKET ?, ?, ?, ?, ?", Ticket.Title, Ticket.T_Description, datatypes.DepartmentsHash[Ticket.Department], Ticket.CreationDate, Ticket.Priority)
 
 	if result.Error != nil {
 		http.Error(w, "Database execution error: "+result.Error.Error(), http.StatusInternalServerError)
