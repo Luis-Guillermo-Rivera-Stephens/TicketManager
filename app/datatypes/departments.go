@@ -14,13 +14,13 @@ var DepartmentsHash map[string]int = map[string]int{
 
 var DepartmentsSlice = []string{
 	"None",
-	"FrontEnd",
-	"BackEnd",
-	"App Developer",
-	"SQL DataBase",
-	"Neo4j DataBase",
-	"PM",
+	"Frontend",
+	"Backend",
+	"App Development",
+	"SQL DataBase Developer",
+	"Neo4j DataBase Developer",
+	"Project Manager",
 	"General",
 	"Testing",
-	"SysAdmin",
+	"System Administrator",
 }

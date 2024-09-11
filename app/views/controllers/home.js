@@ -42,8 +42,13 @@ function ticket_formateado(ticket) {
         if (ticket_flag) {
             let ticket_info = TicketMap.get(ticket_id)
             console.log(ticket_info);
-            document.getElementById("modalTitleId").innerHTML = "Ticket "+ ticket_id + `: ${ticket_info.title}`;
-            document.getElementById("modalIdBody").innerHTML = ticket_info.t_description
+            document.getElementById("ticketTitle").innerHTML = "Ticket "+ ticket_id + `: ${ticket_info.title}`;
+            document.getElementById("ticketDescription").innerHTML = ticket_info.t_description;
+            document.getElementById("ticketOwner").innerHTML = `${ticket_info.owner == ""? "-": ticket_info.owner}`;
+            document.getElementById("ticketDepartment").innerHTML = ticket_info.department;
+            document.getElementById("ticketPriority").innerHTML = ticket_info.priority;
+            document.getElementById("ticketCreationDate").innerHTML = ticket_info.creation_date;
+            //document.getElementById("modalIdBody").innerHTML = ticket_info.t_description
         } else {
             console.error(`Ticket con ID ${ticket_id} no encontrado en TicketMap`);
         }

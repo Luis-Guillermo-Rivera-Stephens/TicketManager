@@ -5,3 +5,27 @@
 .ticket-row td {
     flex: 1
 }
+
+.modal-header {
+    background-color: #f8f9fa;
+    border-bottom: 1px solid #dee2e6;
+}
+.modal-title {
+    font-weight: 500;
+    color: #6c757d;
+}
+.info-label {
+    font-weight: 500;
+    color: #495057;
+}
+.info-content {
+    color: #212529;
+}
+.btn-status {
+    background-color: #17a2b8;
+    color: white;
+}
+.btn-assign {
+    background-color: #28a745;
+    color: white;
+}

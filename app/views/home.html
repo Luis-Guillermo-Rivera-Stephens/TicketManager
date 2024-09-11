@@ -126,51 +126,58 @@
         </main>
 
         <footer>
-            <div
-                class="modal fade"
-                id="modalIdTicket"
-                tabindex="-1"
-                data-bs-backdrop="static"
-                data-bs-keyboard="false"
-                
-                role="dialog"
-                aria-labelledby="modalTitleId"
-                aria-hidden="true"
-            >
-                <div
-                    class="modal-dialog modal-dialog-scrollable modal-dialog-centered modal-sm"
-                    role="document"
-                >
+            <div class="modal fade" id="modalIdTicket" tabindex="-1" aria-labelledby="ticketModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-lg">
                     <div class="modal-content">
                         <div class="modal-header">
-                            <h5 class="modal-title" id="modalTitleId">
-                            </h5>
-                            <button
-                                type="button"
-                                class="btn-close"
-                                data-bs-dismiss="modal"
-                                aria-label="Close"
-                            ></button>
+                            <h5 class="modal-title" id="ticketTitle"></h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
                         <div class="modal-body">
-                            <div class="col-9" id="modalIdBody"></div>
-                            <span class="col-3" id="modalIdMenu">Este va a ser el menu bro</span>
-
+                            <div class="row mb-3">
+                                <div class="col-md-8">
+                                    <p class="info-label"><b>Ticket Description:</b></p>
+                                    <p class="info-content" id="ticketDescription"></p>
+                                </div>
+                                <div class="col-md-4">
+                                    <p class="info-label"><b>Owner:</b></p>
+                                    <p class="info-content" id="ticketOwner"></p>
+                                    
+                                    <p class="info-label"><b>Department:</b></p>
+                                    <p class="info-content" id="ticketDepartment"></p>
+                                    
+                                    <p class="info-label"><b>Priority:</b></p>
+                                    <p class="info-content" id="ticketPriority"></p>
+                                    
+                                    <p class="info-label"><b>Creation Date</b></p>
+                                    <p class="info-content" id="ticketCreationDate"></p>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="dropdown mb-3">
+                                        <button class="btn btn-status dropdown-toggle" type="button" id="statusDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+                                            Status: <span id="currentStatus"></span>
+                                        </button>
+                                        <ul class="dropdown-menu" aria-labelledby="statusDropdown">
+                                            <li><a class="dropdown-item" href="#" onclick="updateStatus('Open')">Open</a></li>
+                                            <li><a class="dropdown-item" href="#" onclick="updateStatus('In Progress')">In Progress</a></li>
+                                            <li><a class="dropdown-item" href="#" onclick="updateStatus('Closed')">Closed</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 text-end">
+                                    <button type="button" class="btn btn-assign" onclick="assignTicket()">Assign me</button>
+                                </div>
+                            </div>
                         </div>
                         <div class="modal-footer">
-                            <button
-                                type="button"
-                                class="btn btn-secondary"
-                                data-bs-dismiss="modal"
-                            >
-                                Close
-                            </button>
-                            <button type="button" class="btn btn-primary">Save</button>
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                            <button type="button" class="btn btn-primary" onclick="saveChanges()">Save</button>
                         </div>
                     </div>
                 </div>
             </div>
-            
             
         </footer>
         <!--Personal JavaScript Libraries-->
