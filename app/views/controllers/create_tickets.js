@@ -17,6 +17,7 @@ var prioridad = "Baja"
 function updateDepartment(elementId) {
     department = parseInt(document.getElementById(elementId).getAttribute('data-value'));
     departmentname = array[department];
+    console.log("department = ", departmentname);
     document.getElementById('dep').innerHTML = departmentname;
 }
 function updatePriority(elementId) {

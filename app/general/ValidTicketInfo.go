@@ -19,7 +19,7 @@ func ValidTicketInfo(t datatypes.TICKET) error {
 	}
 	if idDep, ok := datatypes.DepartmentsHash[t.Department]; !ok {
 		fmt.Println(idDep)
-		return errors.New("department must be between 1 and 10")
+		return errors.New("department doesnt exist")
 	}
 
 	return nil

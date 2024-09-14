@@ -25,6 +25,8 @@ func Create_Ticket(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
+	fmt.Println("Department: ", Ticket.Department)
+	fmt.Println("Department ID: ", datatypes.DepartmentsHash[Ticket.Department])
 	if err = general.ValidTicketInfo(Ticket); err != nil {
 		http.Error(w, "Validation error: "+err.Error(), http.StatusBadRequest)
 		return

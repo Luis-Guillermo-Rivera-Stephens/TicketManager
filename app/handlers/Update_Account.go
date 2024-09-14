@@ -43,9 +43,9 @@ func Update_Password(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	Account, err := general.GetAccount(resultID)
+	Account, err, stat := general.GetAccount(resultID)
 	if err != nil {
-		http.Error(w, err.Error(), http.StatusInternalServerError)
+		http.Error(w, err.Error(), stat)
 		return
 	}
 

@@ -14,9 +14,9 @@ func IsPM(next http.Handler) http.Handler {
 			return
 		}
 
-		Account, err := general.GetAccount(id)
+		Account, err, stat := general.GetAccount(id)
 		if err != nil {
-			http.Error(w, err.Error(), http.StatusBadRequest)
+			http.Error(w, err.Error(), stat)
 			return
 		}
 		if !Account.IsPM {

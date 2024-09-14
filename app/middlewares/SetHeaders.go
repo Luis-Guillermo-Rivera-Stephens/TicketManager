@@ -15,7 +15,7 @@ func SetHeaders(next http.Handler) http.Handler {
 		// Leer el cuerpo del request
 		body, err := io.ReadAll(r.Body)
 		if err != nil {
-			http.Error(w, "Error al leer el Body del request", http.StatusBadRequest)
+			http.Error(w, "Error al leer el Body del request", http.StatusInternalServerError)
 			return
 		}
 
@@ -24,7 +24,7 @@ func SetHeaders(next http.Handler) http.Handler {
 
 		var data map[string]interface{}
 		if err := json.NewDecoder(bytes.NewBuffer(body)).Decode(&data); err != nil {
-			http.Error(w, "Invalid request", http.StatusBadRequest)
+			http.Error(w, "Error decodificando el bpdy", http.StatusInternalServerError)
 			return
 		}
 

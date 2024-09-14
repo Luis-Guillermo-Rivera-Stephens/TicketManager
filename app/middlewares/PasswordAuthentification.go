@@ -11,16 +11,19 @@ func PasswordAuthentification(next http.Handler) http.Handler {
 	return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
 
 		var Pass NewPassword
-		json.NewDecoder(r.Body).Decode(&Pass)
+		err := json.NewDecoder(r.Body).Decode(&Pass)
+		if err != nil {
+			http.Error(w, "Error trying to decode the body", http.StatusInternalServerError)
+		}
 
 		id, err := general.StringToInt(r.Header.Get("id"))
 		if err != nil {
 			http.Error(w, err.Error(), http.StatusBadRequest)
 			return
 		}
-		Account, err := general.GetAccount(id)
+		Account, err, stat := general.GetAccount(id)
 		if err != nil {
-			http.Error(w, err.Error(), http.StatusUnauthorized)
+			http.Error(w, err.Error(), stat)
 			return
 		}
 

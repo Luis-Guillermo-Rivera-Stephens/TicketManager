@@ -17,9 +17,9 @@ func GetAccount(w http.ResponseWriter, r *http.Request) {
 		http.Error(w, err.Error(), http.StatusInternalServerError)
 	}
 
-	Account, err := general.GetAccount(id)
+	Account, err, stat := general.GetAccount(id)
 	if err != nil {
-		http.Error(w, err.Error(), http.StatusInternalServerError)
+		http.Error(w, err.Error(), stat)
 		return
 	}
 

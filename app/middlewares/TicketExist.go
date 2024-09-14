@@ -14,7 +14,7 @@ func TicketExist(next http.Handler) http.Handler {
 			http.Error(w, "Error getting the database", http.StatusInternalServerError)
 			return
 		}
-		id, err := general.StringToInt(r.Header.Get("id"))
+		id, err := general.StringToInt(r.Header.Get("id_ticket"))
 		if err != nil {
 			http.Error(w, "Error getting the id", http.StatusBadRequest)
 			return
