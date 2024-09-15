@@ -32,11 +32,9 @@ func Create_Ticket(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	Ticket.CreationDate = time.Now().Format("2006-01-02 15:04:05.000")
-
 	fmt.Println(Ticket)
 
-	result := db.Exec("EXEC CREATE_TICKET ?, ?, ?, ?, ?", Ticket.Title, Ticket.T_Description, datatypes.DepartmentsHash[Ticket.Department], Ticket.CreationDate, Ticket.Priority)
+	result := db.Exec("EXEC CREATE_TICKET ?, ?, ?, ?, ?", Ticket.Title, Ticket.T_Description, datatypes.DepartmentsHash[Ticket.Department], time.Now().Format("2006-01-02 15:04:05.000"), Ticket.Priority)
 
 	if result.Error != nil {
 		http.Error(w, "Database execution error: "+result.Error.Error(), http.StatusInternalServerError)

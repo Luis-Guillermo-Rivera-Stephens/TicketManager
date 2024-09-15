@@ -33,7 +33,6 @@ function ticket_formateado(ticket) {
         <td class="department_td">${ticket.department}</td>
         <td class="status_td">${ticket.status}</td>  
         <td class="priority_td">${ticket.priority}</td>  
-        <td class="creation_date_td">${ticket.creation_date}</td>
     `;
 
     row.addEventListener("click", () => {
@@ -47,7 +46,7 @@ function ticket_formateado(ticket) {
             document.getElementById("ticketOwner").innerHTML = `${ticket_info.owner == ""? "-": ticket_info.owner}`;
             document.getElementById("ticketDepartment").innerHTML = ticket_info.department;
             document.getElementById("ticketPriority").innerHTML = ticket_info.priority;
-            document.getElementById("ticketCreationDate").innerHTML = ticket_info.creation_date;
+        
             //document.getElementById("modalIdBody").innerHTML = ticket_info.t_description
         } else {
             console.error(`Ticket con ID ${ticket_id} no encontrado en TicketMap`);

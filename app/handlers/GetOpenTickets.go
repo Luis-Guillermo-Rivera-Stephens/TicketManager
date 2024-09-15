@@ -2,6 +2,7 @@ package handlers
 
 import (
 	"encoding/json"
+	"fmt"
 	"net/http"
 
 	"github.com/Luis-Guillermo-Rivera-Stephens/TicketManager/app/data"
@@ -28,6 +29,9 @@ func GetOpenTickets(w http.ResponseWriter, r *http.Request) {
 	if err != nil {
 		http.Error(w, "Error generating token: "+err.Error(), http.StatusBadRequest)
 		return
+	}
+	if len(tickets) != 0 {
+		fmt.Println(tickets)
 	}
 
 	w.Header().Add("Content-Type", "application/json")
