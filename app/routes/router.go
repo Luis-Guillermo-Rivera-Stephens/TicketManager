@@ -73,5 +73,8 @@ func (api *API) InitRoutes() {
 	one_ticket := tickets.NewRoute().Subrouter()
 	one_ticket.Use(middlewares.TicketExist)
 	one_ticket.HandleFunc("/tickets/update/owner", handlers.Update_Owner).Methods(http.MethodPut)
+	one_ticket_status := one_ticket.NewRoute().Subrouter()
+	one_ticket_status.Use(middlewares.ValidStatus)
+	one_ticket_status.HandleFunc("/tickets/update/status/{s_id}", handlers.Update_Status).Methods(http.MethodPut)
 
 }
