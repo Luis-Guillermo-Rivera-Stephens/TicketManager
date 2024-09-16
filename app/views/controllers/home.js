@@ -46,6 +46,7 @@ function ticket_formateado(ticket) {
             document.getElementById("ticketOwner").innerHTML = `${ticket_info.owner == ""? "-": ticket_info.owner}`;
             document.getElementById("ticketDepartment").innerHTML = ticket_info.department;
             document.getElementById("ticketPriority").innerHTML = ticket_info.priority;
+            document.getElementById("ticketCurrentStatus").innerHTML = ticket_info.status;
         
             //document.getElementById("modalIdBody").innerHTML = ticket_info.t_description
         } else {
