@@ -160,9 +160,13 @@
                                             Status: <span id="currentStatus"></span>
                                         </button>
                                         <ul class="dropdown-menu" aria-labelledby="statusDropdown">
-                                            <li><a class="dropdown-item" href="#" onclick="updateStatus('Open')">Open</a></li>
-                                            <li><a class="dropdown-item" href="#" onclick="updateStatus('In Progress')">In Progress</a></li>
-                                            <li><a class="dropdown-item" href="#" onclick="updateStatus('Closed')">Closed</a></li>
+                                            <li><a class="dropdown-item" href="#" onclick="updateStatus(2)">New Assigned</a></li>
+                                            <li><a class="dropdown-item" href="#" onclick="updateStatus(3)">In Progress</a></li>
+                                            <li><a class="dropdown-item" href="#" onclick="updateStatus(4)">On Hold</a></li>
+                                            <li><a class="dropdown-item" href="#" onclick="updateStatus(5)">Testing</a></li>
+                                            <li><a class="dropdown-item" href="#" onclick="updateStatus(6)">Closed</a></li>
+                                            <li><a class="dropdown-item" href="#" onclick="updateStatus(7)">Canceled</a></li>
+                                            <li><a class="dropdown-item" href="#" onclick="updateStatus(8)">Testing Declined</a></li>
                                         </ul>
                                     </div>
                                 </div>
@@ -173,17 +177,56 @@
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                            <button type="button" class="btn btn-primary" onclick="saveChanges()">Save</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        
+            <div
+                class="modal fade"
+                id="modalIdAlerta"
+                tabindex="-1"
+                data-bs-backdrop="static"
+                data-bs-keyboard="false"
+                        
+                role="dialog"
+                aria-labelledby="modalTitleId"
+                aria-hidden="true"
+            >
+                <div
+                    class="modal-dialog modal-dialog-scrollable modal-dialog-centered modal-sm"
+                    role="document"
+                >
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h4 class="modal-title" id="modalTitleIdAlert" style = 'color:rgb(0, 0, 0)'>
+                                Ups ... Algo salio mal
+
+                            </h4>
+                            <button
+                                type="button"
+                                class="btn-close"
+                                data-bs-dismiss="modal"
+                                aria-label="Close"
+                                onclick= "cerrarAlerta()"
+
+                            ></button>
+                        </div>
+                        <div class="modal-body alertaBody">
+                            <h6 id="modalIdAlertaBody"></h6>
                         </div>
                     </div>
                 </div>
             </div>
             
         </footer>
+
         <!--Personal JavaScript Libraries-->
+        <script src="/controllers/alertas.js"></script>
         <script src="/controllers/session_storage.js"></script>
         <script src="/controllers/departemts.js"></script> 
         <script src="/controllers/home.js"></script>
+        <script src="/controllers/update_ticket_generaL.js"></script>
 
         <!-- Bootstrap JavaScript Libraries -->
         <script

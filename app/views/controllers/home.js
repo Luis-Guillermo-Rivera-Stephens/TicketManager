@@ -5,6 +5,7 @@ if (!islogged()){
 }
 
 let TicketMap = new Map();
+var ticket_info;
 
 let name_department = JSON.parse(sessionStorage.SSH).account.name + " - " + array[JSON.parse(sessionStorage.SSH).account.department_fk]
 console.log(name_department)
@@ -39,7 +40,7 @@ function ticket_formateado(ticket) {
         let ticket_id = parseInt(row.getAttribute('data-value')); 
         let ticket_flag = TicketMap.has(ticket_id);
         if (ticket_flag) {
-            let ticket_info = TicketMap.get(ticket_id)
+            ticket_info = TicketMap.get(ticket_id)
             console.log(ticket_info);
             document.getElementById("ticketTitle").innerHTML = "Ticket "+ ticket_id + `: ${ticket_info.title}`;
             document.getElementById("ticketDescription").innerHTML = ticket_info.t_description;
