@@ -18,6 +18,7 @@ document.getElementById("login").addEventListener('click', (event)=>{
             var token = xhr.getResponseHeader("token")
             console.log(data, "  token:  ", token);
             logger(data, token)
+            setLastCall("http://localhost:8080/tickets/open", get_id_account(), get_token())
             console.log(data.isstarted)
             if (data.isstarted == false){
                 alerta("Ups algo salio mal","Redirect to update")

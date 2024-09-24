@@ -1,4 +1,9 @@
 function updateStatus(s_id,) {
+    if (get_id_account() != ticket_info.id_account){
+        alerta("Ups", "No eres dueño de este ticket");
+        return;
+    }
+
     let xhr = new XMLHttpRequest();
     xhr.open('PUT', `http://localhost:8080/tickets/update/status/${s_id}`);
     xhr.setRequestHeader('token', get_token());

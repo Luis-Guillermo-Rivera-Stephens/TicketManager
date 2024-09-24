@@ -4,6 +4,15 @@ class SSHandler {
         this.logged = false,
         this.account = null,
         this.token = "";
+        this.lastCall = new LastCall('http://localhost:8080/tickets/open', this.account ? this.account.id_account : null, this.token);
+    }
+}
+
+class LastCall {
+    constructor(url, id, token) {
+        this.url = url;
+        this.id = id;
+        this.token = token;
     }
 }
 
@@ -71,11 +80,10 @@ function get_token(){
 }
 
 function set_token(token){
-    let aux = new SSHandler();
-    aux.started = JSON.parse(sessionStorage.SSH).started;
-    aux.logged = JSON.parse(sessionStorage.SSH).logged;
+    let aux = JSON.parse(sessionStorage.SSH)
     if (aux.started === true && aux.logged === true) {
-        JSON.parse(sessionStorage.SSH).token = token
+        aux.token = token
+        sessionStorage.SSH = JSON.stringify(aux)
     }
 }
 
@@ -112,6 +120,23 @@ function get_id_account(){
 function islogged(){
     return JSON.parse(sessionStorage.SSH).logged;
 
+}
+
+function setLastCall(url, id, token) {
+    let sshData = JSON.parse(sessionStorage.SSH);
+
+    let aux = new SSHandler();
+    aux.started = sshData.started;
+    aux.logged = sshData.logged;
+
+
+    if (aux.started === true && aux.logged === true) {
+        sshData.lastCall.url = url;
+        sshData.lastCall.id = id;
+        sshData.lastCall.token = token;
+
+        sessionStorage.SSH = JSON.stringify(sshData);
+    }
 }
 
 starter()

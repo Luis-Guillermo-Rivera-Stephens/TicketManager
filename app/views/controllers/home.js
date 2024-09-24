@@ -17,6 +17,7 @@ document.getElementById('logout').addEventListener("click", ()=>{
     window.location.href = 'http://localhost:8080/login'
 })
 
+
 function ticket_formateado(ticket) {
     let row = document.createElement("tr");
     row.classList.add("ticket-row");
@@ -85,6 +86,7 @@ function getTickets(map, route){
 
     xhr.setRequestHeader('id', id);
     xhr.setRequestHeader('token', token);
+    
 
     xhr.send();
 
@@ -92,6 +94,7 @@ function getTickets(map, route){
         if (xhr.status == 200) {
             set_token(xhr.getResponseHeader('token'));
             on_load_tickets(map, xhr)
+            setLastCall(url, id, token)
         }
         else if (xhr.status == 418) {
             console.log('redireccionando a login por token invalido')
@@ -121,6 +124,7 @@ function getTicketsWithDeparment(map, route, dep){
         if (xhr.status == 200) {
             set_token(xhr.getResponseHeader('token'));
             on_load_tickets(map, xhr)
+            setLastCall(url, id, token)
         }
         else if (xhr.status == 418) {
             console.log('redireccionando a login por token invalido')
@@ -129,6 +133,39 @@ function getTicketsWithDeparment(map, route, dep){
         }
     }
 }
+
+function doLastCall() {
+    // Obtener el objeto SSH y lastCall una sola vez
+    let sshData = JSON.parse(sessionStorage.SSH);
+    let lastCall = sshData.lastCall;
+
+    // Crear el XMLHttpRequest
+    let xhr = new XMLHttpRequest();
+    xhr.open('GET', lastCall.url);
+
+    // Configurar los encabezados con id y token
+    xhr.setRequestHeader('id', lastCall.id);
+    xhr.setRequestHeader('token', lastCall.token);
+
+    // Enviar la solicitud
+    xhr.send();
+
+    // Manejar la respuesta
+    xhr.onload = () => {
+        if (xhr.status === 200) {
+            // Actualizar el token
+            set_token(xhr.getResponseHeader('token'));
+            
+            // Cargar los tickets
+            on_load_tickets(TicketMap, xhr);
+        } else if (xhr.status === 418) {
+            console.log('Redireccionando a login por token inválido');
+            unlogger();
+            window.location.href = 'http://localhost:8080/login';
+        }
+    };
+}
+
 
 document.getElementById('get-tickets-all-open').addEventListener("click", () => getTickets(TicketMap,'/open'));
 document.getElementById("get-tickets-all").addEventListener("click",() => getTickets(TicketMap,'/all'));
@@ -147,3 +184,5 @@ document.getElementById("get-tickets-neo4j").addEventListener("click", () => get
 document.getElementById("get-tickets-testing").addEventListener("click", () => getTicketsWithDeparment(TicketMap, `/department`, 8));
 document.getElementById("get-tickets-sysadmin").addEventListener("click", () => getTicketsWithDeparment(TicketMap, `/department`, 9));
 document.getElementById("get-tickets-PM").addEventListener("click", () => getTicketsWithDeparment(TicketMap, `/department`, 6));
+
+doLastCall()
