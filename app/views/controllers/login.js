@@ -12,19 +12,34 @@ document.getElementById("login").addEventListener('click', (event)=>{
     xhr.setRequestHeader('email', email)
     xhr.setRequestHeader('password', password)
     xhr.send();
+    
     xhr.onload= (req, res) => {
         if (xhr.status == 200) {
             var data = JSON.parse(xhr.responseText);
-            var token = xhr.getResponseHeader("token")
-            console.log(data, "  token:  ", token);
-            logger(data, token)
-            setLastCall("http://localhost:8080/tickets/open", get_id_account(), get_token())
-            console.log(data.isstarted)
-            if (data.isstarted == false){
-                alerta("Ups algo salio mal","Redirect to update")
+            var token = xhr.getResponseHeader("token");
+            
+            console.log(data, "token: ", token); // Verificar si los datos y el token se están recibiendo correctamente
+
+            if (data.id_account) {
+                console.log("ID Account exists: ", data.id_account); // Confirmar si `id_account` existe en la respuesta
+            } else {
+                console.error("ID Account not found in response");
+            }
+            
+            if (token) {
+                console.log("Token exists: ", token); // Confirmar si el token fue recibido
+            } else {
+                console.error("Token not found in response headers");
+            }
+
+            logger(data, token);
+            setLastCall("http://localhost:8080/tickets/open", data.id_account, token);
+            
+            if (data.isstarted === false){
+                alerta("Ups algo salio mal","Redirect to update");
                 window.location.href = 'http://localhost:8080/update';
             } else {
-                console.log("Redirect to home")
+                console.log("Redirect to home");
                 window.location.href = 'http://localhost:8080/home';
             }
         }
@@ -38,4 +53,4 @@ document.getElementById("login").addEventListener('click', (event)=>{
             alerta("Ups algo salio mal","error trying to get the account");
         }
     }
-})
+});
