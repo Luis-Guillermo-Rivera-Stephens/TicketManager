@@ -30,7 +30,6 @@ function ticket_formateado(ticket) {
     row.innerHTML = `
         <td class="id_td">${ticket.id_ticket}</td>            
         <td class="title_td">${ticket.title}</td>   
-        <td class="description_td">${ticket.t_description}</td> 
         <td class="owner_td">${ticket.owner !== "" ? ticket.owner : "-"}</td>   
         <td class="department_td">${ticket.department}</td>
         <td class="status_td">${ticket.status}</td>  

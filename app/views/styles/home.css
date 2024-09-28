@@ -29,3 +29,79 @@
     background-color: #28a745;
     color: white;
 }
+
+/* Estilos para los encabezados */
+.f_t_id {
+    width: 5%;  /* Ajustado para mantener espacio */
+}
+
+.f_t_title {
+    width: 35%; /* Ancho aumentado para el título */
+}
+
+.f_t_owner {
+    width: 15%; /* Reducido para compensar el ancho del título */
+}
+
+.f_t_dep {
+    width: 15%; /* Ajustado para mantener proporciones */
+}
+
+.f_t_status {
+    width: 15%; /* Ajustado para mantener proporciones */
+}
+
+.f_t_priority {
+    width: 15%; /* Ajustado para mantener proporciones */
+}
+
+/* Estilos para las celdas de las filas */
+.id_td {
+    text-align: center;
+    width: 5%;
+    height: 10%;
+}
+
+.title_td {
+    width: 35%;
+    height: 10%;
+}
+
+.owner_td {
+    width: 15%;
+    height: 10%;
+}
+
+.department_td {
+    width: 15%;
+    height: 10%;
+}
+
+.status_td {
+    width: 15%;
+    height: 10%;
+}
+
+.priority_td {
+    width: 15%;
+    height: 10%;
+}
+
+/* Ajustes generales para la tabla */
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+td {
+    padding: 8px;
+    text-align: left;
+    border: 1px solid #ddd;
+}
+
+th {
+    padding: 8px;
+    text-align: center;
+    border: 1px solid #ddd;
+}
+
