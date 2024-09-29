@@ -31,7 +31,7 @@ document.getElementById('register').addEventListener('click', () => {
     console.log(accountJSON)
 
     let xhr = new XMLHttpRequest();
-    xhr.open("POST", "http://localhost:8080/account");
+    xhr.open("POST", `${URL_SERVER}/account`);
     xhr.setRequestHeader('Content-Type','application/json');  
 
 

@@ -4,7 +4,7 @@ class SSHandler {
         this.logged = false,
         this.account = null,
         this.token = "";
-        this.lastCall = new LastCall('http://localhost:8080/tickets/open', this.account ? this.account.id_account : null, this.token);
+        this.lastCall = new LastCall(`${URL_SERVER}/tickets/open`, this.account ? this.account.id_account : null, this.token);
     }
 }
 

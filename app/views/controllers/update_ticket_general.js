@@ -5,7 +5,7 @@ function updateStatus(s_id,) {
     }
 
     let xhr = new XMLHttpRequest();
-    xhr.open('PUT', `http://localhost:8080/tickets/update/status/${s_id}`);
+    xhr.open('PUT', `${URL_SERVER}/tickets/update/status/${s_id}`);
     xhr.setRequestHeader('token', get_token());
     xhr.setRequestHeader('id', get_id_account());
     xhr.setRequestHeader('id_ticket', ticket_info.id_ticket);
@@ -21,7 +21,7 @@ function updateStatus(s_id,) {
         else if (xhr.status == 418) {
             console.log('redireccionando a login por token invalido')
             unlogger()
-            window.location.href = 'http://localhost:8080/login'
+            window.location.href = `${URL_SERVER}/login`
         }
         else [
             alerta(`Error ${xhr.status}`, `${xhr.responseText}`)
@@ -31,7 +31,7 @@ function updateStatus(s_id,) {
 
 function assignMeTicket() {
     let xhr = new XMLHttpRequest();
-    xhr.open('PUT', `http://localhost:8080/tickets/update/owner`);
+    xhr.open('PUT', `${URL_SERVER}/tickets/update/owner`);
     xhr.setRequestHeader('token', get_token());
     xhr.setRequestHeader('id', get_id_account());
     xhr.setRequestHeader('id_ticket', ticket_info.id_ticket);
@@ -47,7 +47,7 @@ function assignMeTicket() {
         else if (xhr.status == 418) {
             console.log('redireccionando a login por token invalido')
             unlogger()
-            window.location.href = 'http://localhost:8080/login'
+            window.location.href = `${URL_SERVER}/login`
         }
         else [
             alerta(`Error ${xhr.status}`, `${xhr.responseText}`)

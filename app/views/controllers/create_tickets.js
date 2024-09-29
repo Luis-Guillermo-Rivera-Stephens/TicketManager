@@ -1,12 +1,12 @@
 starter()
 
 if (!islogged()){
-    window.location.href = 'http://localhost:8080/login';
+    window.location.href = `${URL_SERVER}/login`
 }
 
 if (get_department() != 6 && get_department() != 7) {
     console.log("You're not a PM")
-    window.location.href = 'http://localhost:8080/home';
+    window.location.href = `${URL_SERVER}/home`
 }
 
 var department = 0
@@ -51,7 +51,7 @@ document.getElementById('create-ticket').addEventListener('click', () => {
     let TicketJSON = JSON.stringify(new_ticket);
 
     let xhr = new XMLHttpRequest();
-    xhr.open("POST", "http://localhost:8080/tickets");
+    xhr.open("POST", `${URL_SERVER}/tickets`);
     xhr.setRequestHeader('Content-Type','application/json');  
     xhr.setRequestHeader('token', get_token());
     xhr.setRequestHeader('id', get_id_account());
@@ -63,7 +63,7 @@ document.getElementById('create-ticket').addEventListener('click', () => {
         } else if (xhr.status == 418) {
             alerta("Ups algo salio mal",'redireccionando a login por token invalido')
             unlogger()
-            window.location.href = 'http://localhost:8080/login'
+            window.location.href = `${URL_SERVER}/login`
         }
         else {
             alerta("Ups hubo un problema",xhr.responseText);

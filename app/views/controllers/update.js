@@ -1,7 +1,7 @@
 starter()
 
 if (!islogged()){
-    window.location.href = 'http://localhost:8080/login';
+    window.location.href = `${URL_SERVER}/login`;
 }
 
 
@@ -19,7 +19,7 @@ document.getElementById('submit').addEventListener("click", () => {
     }
     let newpass = new NewPassword(currentpass, newpass1)
     let xhr = new XMLHttpRequest();
-    xhr.open('PUT', 'http://localhost:8080/account');
+    xhr.open('PUT', `${URL_SERVER}/account`);
     xhr.setRequestHeader('email', get_email())
     xhr.setRequestHeader('token', get_token());
 

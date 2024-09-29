@@ -1,7 +1,7 @@
 starter()
 
 if (!islogged()){
-    window.location.href = 'http://localhost:8080/login';
+    window.location.href = `${URL_SERVER}/login`
 }
 
 let TicketMap = new Map();
@@ -14,7 +14,7 @@ document.getElementById('navbar_info').innerHTML = name_department
 
 document.getElementById('logout').addEventListener("click", ()=>{
     unlogger()
-    window.location.href = 'http://localhost:8080/login'
+    window.location.href = `${URL_SERVER}/login`
 })
 
 
@@ -76,7 +76,7 @@ function on_load_tickets(map, xhr) {
 function getTickets(map, route){
     let xhr = new XMLHttpRequest();
 
-    let url = 'http://localhost:8080/tickets' + route
+    let url = `${URL_SERVER}/tickets` + route
 
     xhr.open('GET', url);
 
@@ -98,7 +98,7 @@ function getTickets(map, route){
         else if (xhr.status == 418) {
             console.log('redireccionando a login por token invalido')
             unlogger()
-            window.location.href = 'http://localhost:8080/login'
+            window.location.href = `${URL_SERVER}/login`
         }
     }
 }
@@ -107,7 +107,7 @@ function getTicketsWithDeparment(map, route, dep){
     let xhr = new XMLHttpRequest();
     route += ("/" + dep)
 
-    let url = 'http://localhost:8080/tickets' + route
+    let url = `${URL_SERVER}/tickets` + route
 
     xhr.open('GET', url);
 
@@ -128,7 +128,7 @@ function getTicketsWithDeparment(map, route, dep){
         else if (xhr.status == 418) {
             console.log('redireccionando a login por token invalido')
             unlogger()
-            window.location.href = 'http://localhost:8080/login'
+            window.location.href = `${URL_SERVER}/login`
         }
     }
 }
@@ -160,7 +160,7 @@ function doLastCall() {
         } else if (xhr.status === 418) {
             console.log('Redireccionando a login por token inválido');
             unlogger();
-            window.location.href = 'http://localhost:8080/login';
+            window.location.href = `${URL_SERVER}/login`
         }
     };
 }

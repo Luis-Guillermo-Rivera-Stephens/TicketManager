@@ -8,7 +8,7 @@ document.getElementById("login").addEventListener('click', (event)=>{
     let password = document.getElementById("password").value;
 
     let xhr = new XMLHttpRequest();
-    xhr.open('GET', 'http://localhost:8080/account');
+    xhr.open('GET', `${URL_SERVER}/account`);
     xhr.setRequestHeader('email', email)
     xhr.setRequestHeader('password', password)
     xhr.send();
@@ -33,14 +33,14 @@ document.getElementById("login").addEventListener('click', (event)=>{
             }
 
             logger(data, token);
-            setLastCall("http://localhost:8080/tickets/open", data.id_account, token);
+            setLastCall(`${URL_SERVER}/tickets/open`, data.id_account, token);
             
             if (data.isstarted === false){
                 alerta("Ups algo salio mal","Redirect to update");
-                window.location.href = 'http://localhost:8080/update';
+                window.location.href = `${URL_SERVER}/update`
             } else {
                 console.log("Redirect to home");
-                window.location.href = 'http://localhost:8080/home';
+                window.location.href = `${URL_SERVER}/home`;
             }
         }
         else if (xhr.status == 401){
