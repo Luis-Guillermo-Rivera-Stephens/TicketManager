@@ -33,6 +33,7 @@ document.getElementById('departmentN').addEventListener('click', () => updateDep
 document.getElementById('departmentT').addEventListener('click', () => updateDepartment('departmentT'));
 document.getElementById('departmentSy').addEventListener('click', () => updateDepartment('departmentSy'));
 document.getElementById('departmentP').addEventListener('click', () => updateDepartment('departmentP'));
+document.getElementById('departmentM').addEventListener('click', () => updateDepartment('departmentM'));
 
 document.getElementById('priorityB').addEventListener('click', () => updatePriority('priorityB'));
 document.getElementById('priorityM').addEventListener('click', () => updatePriority('priorityM'));

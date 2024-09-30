@@ -180,6 +180,7 @@ document.getElementById("get-tickets-back").addEventListener("click", () => getT
 document.getElementById("get-tickets-app").addEventListener("click", () => getTicketsWithDeparment(TicketMap, `/department`, 3));
 document.getElementById("get-tickets-sql").addEventListener("click", () =>getTicketsWithDeparment(TicketMap, `/department`, 4));
 document.getElementById("get-tickets-neo4j").addEventListener("click", () => getTicketsWithDeparment(TicketMap, `/department`, 5));
+document.getElementById("get-tickets-mongo").addEventListener("click", () => getTicketsWithDeparment(TicketMap, `/department`, 10));
 document.getElementById("get-tickets-testing").addEventListener("click", () => getTicketsWithDeparment(TicketMap, `/department`, 8));
 document.getElementById("get-tickets-sysadmin").addEventListener("click", () => getTicketsWithDeparment(TicketMap, `/department`, 9));
 document.getElementById("get-tickets-PM").addEventListener("click", () => getTicketsWithDeparment(TicketMap, `/department`, 6));

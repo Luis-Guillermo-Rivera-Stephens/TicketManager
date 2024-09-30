@@ -6,6 +6,7 @@ var DepartmentsHash map[string]int = map[string]int{
 	"App Development":          3,
 	"SQL Database Developer":   4,
 	"Neo4j Database Developer": 5,
+	"Mongo Database Developer": 10,
 	"Testing":                  8,
 	"System Administrator":     9,
 	"Project Manager":          6,
@@ -23,4 +24,4 @@ var DepartmentsSlice = []string{
 	"General",
 	"Testing",
 	"System Administrator",
-}
+	"Mongo Database Developer"}

@@ -16,6 +16,7 @@ function updateStatus(s_id,) {
         if (xhr.status == 202) {
             set_token(xhr.getResponseHeader('token'));
             alerta("Si jalo bro", "Todo bien")
+            doLastCall()
             //TODO actualizar el ticket de manera visual
         }
         else if (xhr.status == 418) {
@@ -43,6 +44,7 @@ function assignMeTicket() {
             set_token(xhr.getResponseHeader('token'));
             //TODO actualizar el ticket de manera visual
             alerta("Si jalo bro", "todo bien pa")
+            doLastCall()
         }
         else if (xhr.status == 418) {
             console.log('redireccionando a login por token invalido')

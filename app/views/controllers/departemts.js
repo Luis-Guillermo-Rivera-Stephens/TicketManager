@@ -7,7 +7,8 @@ let hashMap = new Map([
     ["Testing", 8],
     ["System Administrator", 9],
     ["Project Manager", 6],
-    ["General", 7]
+    ["General", 7],
+    ["Mongo Database Developer", 10]
 ]);
 
 
@@ -21,5 +22,6 @@ let array = [
     'Project Manager',
     'General',
     'Testing',
-    'System Administrator'
+    'System Administrator',
+    'Mongo Database Developer'
 ]
